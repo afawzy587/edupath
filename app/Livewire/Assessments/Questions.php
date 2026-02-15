@@ -14,8 +14,10 @@ class Questions extends Component
     public array $answers = [];
     public array $answerRows = [];
     public int $page = 1;
-    public int $perPage = 7;
+    public int $perPage = 10;
     public int $total = 0;
+
+    public string $pageName = 'assessments';
 
     public function mount(): void
     {
@@ -28,7 +30,6 @@ class Questions extends Component
     {
         $this->answers[$questionId] = $value;
         $this->saveAnswer($questionId, $value);
-        $this->loadAnswerRows();
         $this->resetErrorBag('page');
     }
 

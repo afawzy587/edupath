@@ -2,13 +2,21 @@
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex flex-wrap items-center justify-between gap-4 py-4">
             <div class="flex items-center gap-2 text-teal-600 font-semibold">
-                <span>EduPath</span>
-                <span class="text-lg">🎓</span>
+                <a wire:navigate href="{{ route('landing-page') }}">
+                    <span>{{ env('APP_NAME') }}</span>
+                    <span class="text-lg">🎓</span>
+                </a>
             </div>
 
+            @php
+                $isAssessments = request()->routeIs('student.assessments') || request()->is('*assessments*') || (isset($pageName) && $pageName === 'assessments');
+                $isHobbies = request()->routeIs('student.hobbies') || request()->is('*hobbies*') || (isset($pageName) && $pageName === 'hobbies');
+                $isCourses = request()->routeIs('student.courses') || request()->is('*courses*');
+            @endphp
             <nav class="flex flex-wrap items-center gap-2 text-sm text-gray-600">
-                <a wire:navigate href="{{ route('assessments') }}"
-                   @if (request()->routeIs('assessments') || request()->is('*assessments*') ) aria-current="page" @endif
+
+                <a wire:navigate href="{{ route('student.assessments') }}"
+                   @if ($isAssessments) aria-current="page" @endif
                    class="group inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-teal-50 hover:text-teal-700 aria-[current=page]:bg-teal-600 aria-[current=page]:text-white">
                     <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal-100 text-teal-700 transition group-aria-[current=page]:bg-white/20 group-aria-[current=page]:text-white">
                         <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -18,8 +26,8 @@
                     </span>
                     {{ __('home.nav.assessments') }}
                 </a>
-                <a wire:navigate href="{{ route('hobbies') }}"
-                   @if (request()->routeIs('hobbies') || request()->is('*hobbies*')) aria-current="page" @endif
+                <a wire:navigate href="{{ route('student.hobbies') }}"
+                   @if ($isHobbies) aria-current="page" @endif
                    class="group inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-teal-50 hover:text-teal-700 aria-[current=page]:bg-teal-600 aria-[current=page]:text-white">
                     <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal-100 text-teal-700 transition group-aria-[current=page]:bg-white/20 group-aria-[current=page]:text-white">
                         <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -29,7 +37,7 @@
                     {{ __('home.nav.hobbies') }}
                 </a>
                 <a wire:navigate href="#"
-                   @if (request()->routeIs('courses') || request()->is('*courses*')) aria-current="page" @endif
+                   @if ($isCourses) aria-current="page" @endif
                    class="group inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-teal-50 hover:text-teal-700 aria-[current=page]:bg-teal-600 aria-[current=page]:text-white">
                     <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal-100 text-teal-700 transition group-aria-[current=page]:bg-white/20 group-aria-[current=page]:text-white">
                         <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

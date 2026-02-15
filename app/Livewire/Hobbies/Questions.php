@@ -13,9 +13,12 @@ class Questions extends Component
     public array $questions = [];
     public array $answers = [];
     public array $answerRows = [];
+
     public int $page = 1;
-    public int $perPage = 7;
+    public int $perPage = 10;
     public int $total = 0;
+
+    public string $pageName = 'hobbies';
 
     public function mount(): void
     {
@@ -28,7 +31,6 @@ class Questions extends Component
     {
         $this->answers[$questionId] = $value;
         $this->saveAnswer($questionId, $value);
-        $this->loadAnswerRows();
         $this->resetErrorBag('page');
     }
 
@@ -80,7 +82,6 @@ class Questions extends Component
             return;
         }
 
-        $this->loadAnswerRows();
         $this->dispatch('hobbies-saved');
     }
 
