@@ -119,6 +119,7 @@ return [
     'password' => [
         'regex' => 'The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
     ],
+    'not_found' => 'Item not found.',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

@@ -66,7 +66,7 @@ return [
     'required_with' => 'يجب إدخال :attribute عندما يكون :values موجودًا.',
     'required_without' => 'يجب إدخال :attribute عندما لا يكون :values موجودًا.',
     'required_if' => 'يجب إدخال :attribute عندما يكون :other يساوي :value.',
-
+    'not_found' => 'البيانات المطلوبة غير موجودة.',
     'attributes' => [
         'name' => 'الاسم',
         'email' => 'البريد الإلكتروني',
