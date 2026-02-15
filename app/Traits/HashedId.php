@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Traits;
 
 use Hashids\Hashids;
@@ -18,9 +20,9 @@ trait HashedId
         return new Hashids($salt, $length, $alphabet);
     }
 
-    protected static function bootHashedId()
+    protected static function bootHashedId(): void
     {
-        static::retrieved(function ($model) {
+        static::retrieved(function ($model): void {
             if (!in_array('hashed_id', $model->appends ?? [], true)) {
                 $model->appends[] = 'hashed_id';
             }

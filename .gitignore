@@ -21,3 +21,5 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+/.php-cs-fixer.cache
+/.php-cs-fixer.dist.php

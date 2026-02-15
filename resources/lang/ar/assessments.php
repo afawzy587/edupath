@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'title' => 'اختبار هولاند للميول المهنية',
     'subtitle' => 'اكتشف نوع شخصيتك المهنية (RIASEC).',

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'title' => 'Holland Career Interest Test',
     'subtitle' => 'Discover your career personality type (RIASEC).',

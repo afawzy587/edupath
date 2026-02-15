@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'title' => 'Hobbies Questionnaire',
     'subtitle' => 'Tell us more about what you enjoy doing.',

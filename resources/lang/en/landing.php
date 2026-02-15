@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'hero' => [
         'badge' => 'Discover Your Path ✨',
@@ -27,5 +29,5 @@ return [
         'career_paths' => 'Career Paths',
         'smart_matching' => 'Smart Matching',
     ],
-    'logout' => 'Logout'
+    'logout' => 'Logout',
 ];

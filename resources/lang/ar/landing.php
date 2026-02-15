@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'hero' => [
         'badge' => 'اكتشف مسارك ✨',
@@ -27,5 +29,5 @@ return [
         'career_paths' => 'مسار مهني',
         'smart_matching' => 'مطابقة ذكية',
     ],
-    'logout' => 'تسجيل الخروج'
+    'logout' => 'تسجيل الخروج',
 ];

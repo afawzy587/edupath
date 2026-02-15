@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'brand' => 'EduPath 🎓',
     'failed' => 'هذه البيانات لا تتطابق مع سجلاتنا.',

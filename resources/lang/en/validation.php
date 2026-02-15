@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     /*
@@ -150,10 +152,10 @@ return [
 
     'attributes' => [
 
-        'name' =>[
+        'name' => [
             'ar' => 'name in Arabic',
             'en' => 'name in English',
-        ]
+        ],
     ],
 
 

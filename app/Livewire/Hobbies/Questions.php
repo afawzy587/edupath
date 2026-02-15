@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Hobbies;
 
 use App\Models\Answer;
@@ -60,7 +62,7 @@ class Questions extends Component
             return 0;
         }
 
-        return min(count(array_filter($this->answers, fn ($value) => $value !== null)), $this->total);
+        return min(count(array_filter($this->answers, fn($value) => $value !== null)), $this->total);
     }
 
     public function getProgressPercentProperty(): float
@@ -96,7 +98,7 @@ class Questions extends Component
         $this->questions = (clone $baseQuery)
             ->forPage($this->page, $this->perPage)
             ->get()
-            ->map(fn ($question) => [
+            ->map(fn($question) => [
                 'id' => $question->id,
                 'title' => $question->title ?? '',
             ])
@@ -113,7 +115,7 @@ class Questions extends Component
 
         $answers = Answer::query()
             ->where('student_id', $studentId)
-            ->whereHas('question', fn ($query) => $query->where('type', 'hobbies'))
+            ->whereHas('question', fn($query) => $query->where('type', 'hobbies'))
             ->pluck('value', 'question_id')
             ->toArray();
 
@@ -132,10 +134,10 @@ class Questions extends Component
         $this->answerRows = Answer::query()
             ->with('question')
             ->where('student_id', $studentId)
-            ->whereHas('question', fn ($query) => $query->where('type', 'hobbies'))
+            ->whereHas('question', fn($query) => $query->where('type', 'hobbies'))
             ->orderBy('question_id')
             ->get()
-            ->map(fn ($answer) => [
+            ->map(fn($answer) => [
                 'question_id' => $answer->question_id,
                 'question_title' => $answer->question?->title ?? '',
                 'value' => (int) $answer->value,
@@ -166,7 +168,7 @@ class Questions extends Component
     {
         $missing = collect($this->questions)
             ->pluck('id')
-            ->filter(fn ($questionId) => ! array_key_exists($questionId, $this->answers));
+            ->filter(fn($questionId) => ! array_key_exists($questionId, $this->answers));
 
         if ($missing->isNotEmpty()) {
             $this->addError('page', __('hobbies.validation_required'));
