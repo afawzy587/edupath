@@ -6,25 +6,6 @@
                 <div id="save-toast" class="fixed right-6 top-6 z-50 hidden rounded-lg bg-teal-600 px-4 py-3 text-sm text-white shadow-lg" role="status" aria-live="polite">
                     {{ __('assessments.save_success') }}
                 </div>
-                @once
-                    <script>
-                        document.addEventListener('livewire:init', () => {
-                            Livewire.on('assessment-saved', () => {
-                                const toast = document.getElementById('save-toast');
-                                if (! toast) {
-                                    return;
-                                }
-                                toast.classList.remove('hidden');
-                                if (window.__saveToastTimer) {
-                                    clearTimeout(window.__saveToastTimer);
-                                }
-                                window.__saveToastTimer = setTimeout(() => {
-                                    toast.classList.add('hidden');
-                                }, 10000);
-                            });
-                        });
-                    </script>
-                @endonce
                 <div class="text-center">
                     <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
                         {{ __('assessments.title') }}

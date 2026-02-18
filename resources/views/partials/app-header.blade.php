@@ -36,7 +36,7 @@
                     </span>
                     {{ __('home.nav.hobbies') }}
                 </a>
-                <a wire:navigate href="#"
+                <a wire:navigate href="{{ route('student.courses') }}"
                    @if ($isCourses) aria-current="page" @endif
                    class="group inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-teal-50 hover:text-teal-700 aria-[current=page]:bg-teal-600 aria-[current=page]:text-white">
                     <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal-100 text-teal-700 transition group-aria-[current=page]:bg-white/20 group-aria-[current=page]:text-white">

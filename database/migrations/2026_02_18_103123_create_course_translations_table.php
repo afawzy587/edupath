@@ -13,7 +13,14 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('course_translations', function (Blueprint $table): void {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('course_id');
+            $table->string('locale')->index();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->unique(['course_id','locale']);
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->timestamps();
         });
     }

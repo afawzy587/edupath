@@ -13,7 +13,8 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table): void {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

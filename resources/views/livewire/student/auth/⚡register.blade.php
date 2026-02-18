@@ -62,6 +62,68 @@
                     @enderror
                 </div>
 
+                <!-- School -->
+                <div>
+                    <label class="block text-sm mb-1">
+                        {{ __('auth.register.school') }}
+                    </label>
+
+                    <input
+                        type="text"
+                        wire:model.defer="school"
+                        class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500"
+                        placeholder="{{ __('auth.register.school_placeholder') }}"
+                    >
+
+                    @error('school')
+                    <span class="text-red-500 text-sm">
+                            {{ $message }}
+                        </span>
+                    @enderror
+                </div>
+
+                <!-- Gender -->
+                <div>
+                    <label class="block text-sm mb-1">
+                        {{ __('auth.register.gender') }}
+                    </label>
+
+                    <select
+                        wire:model.defer="gender"
+                        class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500"
+                    >
+                        <option value="male">{{ __('auth.register.gender_male') }}</option>
+                        <option value="female">{{ __('auth.register.gender_female') }}</option>
+                    </select>
+
+                    @error('gender')
+                    <span class="text-red-500 text-sm">
+                            {{ $message }}
+                        </span>
+                    @enderror
+                </div>
+
+                <!-- Age -->
+                <div>
+                    <label class="block text-sm mb-1">
+                        {{ __('auth.register.age') }}
+                    </label>
+
+                    <select
+                        wire:model.defer="age"
+                        class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500"
+                    >
+                        <option value="nine">{{ __('auth.register.age_nine') }}</option>
+                        <option value="eleven">{{ __('auth.register.age_eleven') }}</option>
+                    </select>
+
+                    @error('age')
+                    <span class="text-red-500 text-sm">
+                            {{ $message }}
+                        </span>
+                    @enderror
+                </div>
+
                 <!-- Password -->
                 <div>
                     <label class="block text-sm mb-1">

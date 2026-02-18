@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryTranslation extends Model
+class CourseTranslation extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'description', 'image'];
 }

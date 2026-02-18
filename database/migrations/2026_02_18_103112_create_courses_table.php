@@ -13,7 +13,12 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('courses', function (Blueprint $table): void {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('instructor_name');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->boolean('active')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

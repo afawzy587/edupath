@@ -13,7 +13,12 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('category_translations', function (Blueprint $table): void {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('category_id');
+            $table->string('locale')->index();
+            $table->string('name');
+            $table->unique(['category_id','locale']);
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

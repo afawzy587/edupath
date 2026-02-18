@@ -18,12 +18,23 @@ class QuestionsSeeder extends Seeder
         $now = now();
         $questionRows = [];
         $translationRows = [];
+        $categoryIds = DB::table('categories')
+            ->orderBy('id')
+            ->pluck('id')
+            ->all();
+        $categoryCount = count($categoryIds);
+        $questionIndex = 0;
 
 
         foreach (['assessments', 'hobbies'] as $type) {
             for ($i = 1; $i <= 20; $i++) {
+                $categoryId = $categoryCount > 0
+                    ? $categoryIds[$questionIndex % $categoryCount]
+                    : null;
+                $questionIndex++;
                 $questionRows[] = [
                     'type' => $type,
+                    'category_id' => $categoryId,
                     'active' => true,
                     'order' => $i,
                     'created_at' => $now,

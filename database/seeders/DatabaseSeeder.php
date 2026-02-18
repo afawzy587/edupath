@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            CategoriesSeeder::class,
             QuestionsSeeder::class,
+            CoursesSeeder::class,
         ]);
     }
 }
