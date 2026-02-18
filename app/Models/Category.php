@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class QuestionTranslation extends Model
+class Category extends Model
 {
-    protected $fillable = ['title','locale','question_id'];
+    //
 }

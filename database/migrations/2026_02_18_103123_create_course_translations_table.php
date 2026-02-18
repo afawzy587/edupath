@@ -12,12 +12,8 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('questions', function (Blueprint $table): void {
-            $table->bigIncrements('id');
-            $table->enum('type', ['assessments','hobbies']);
-            $table->boolean('active')->default(true);
-            $table->integer('order')->default(0);
-            $table->softDeletes();
+        Schema::create('course_translations', function (Blueprint $table): void {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('course_translations');
     }
 };
