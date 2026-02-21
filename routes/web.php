@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 // require __DIR__.'/settings.php';
 
 require __DIR__ . '/App/student.php';
+require __DIR__ . '/App/admin.php';

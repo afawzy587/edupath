@@ -74,4 +74,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Course::class)->withTimestamps();
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->type === 'admin';
+    }
 }

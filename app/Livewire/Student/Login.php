@@ -27,6 +27,11 @@ class Login extends Component
 
         session()->regenerate();
 
+        $user = auth()->user();
+        if ($user && $user->isAdmin()) {
+            return redirect()->intended(route('admin.dashboard'));
+        }
+
         return redirect()->intended(route('landing-page'));
     }
 
