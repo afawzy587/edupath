@@ -11,13 +11,13 @@
         @livewireStyles
     </head>
     <body>
-        @if (session('success'))
-            <div class="max-w-4xl mx-auto mt-6 px-4">
-                <div class="rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-teal-800">
-                    {{ session('success') }}
-                </div>
+    @if (session()->has('success'))
+        <div class="flash-success fixed left-4 right-4 top-4 z-50 max-w-sm px-4 sm:left-auto sm:right-4">
+            <div class="rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-teal-800 shadow-lg">
+                {{ session('success') }}
             </div>
-        @endif
+        </div>
+    @endif
 
         {{ $slot }}
 

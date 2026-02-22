@@ -6,6 +6,7 @@ namespace App\Livewire\Student;
 
 use App\Models\Answer;
 use App\Models\Course;
+use App\Models\Review;
 use Livewire\Component;
 
 class CourseShow extends Component
@@ -13,6 +14,9 @@ class CourseShow extends Component
 
     public Course $course;
     public int $matchPercent = 0;
+    public string $reviewBody = '';
+    public ?Review $userReview = null;
+    public $reviews = [];
 
     public function mount(Course $course)
     {
@@ -22,6 +26,7 @@ class CourseShow extends Component
 
         $this->course = $course;
         $this->matchPercent = $this->calculateMatchPercent($course);
+        $this->loadReviews();
     }
 
     public function getDurationProperty(): int
@@ -34,6 +39,52 @@ class CourseShow extends Component
         return view('livewire.student.course-show')
             ->layout('layouts.app')
             ->layoutData(['pageName' => 'courses']);
+    }
+
+    public function saveReview(): void
+    {
+        $user = auth()->user();
+        if (! $user) {
+            return;
+        }
+
+        $data = $this->validate([
+            'reviewBody' => 'required|string|max:1000',
+        ]);
+
+        $review = Review::updateOrCreate(
+            [
+                'course_id' => $this->course->id,
+                'user_id' => $user->id,
+            ],
+            [
+                'body' => $data['reviewBody'],
+            ]
+        );
+        $messageKey = $review->wasRecentlyCreated ? 'courses.review_created' : 'courses.review_updated';
+        session()->flash('success', __($messageKey));
+
+        $this->userReview = $review;
+        $this->reviewBody = $review->body;
+        $this->loadReviews();
+    }
+
+    public function deleteReview(): void
+    {
+        $user = auth()->user();
+        if (! $user) {
+            return;
+        }
+
+        Review::query()
+            ->where('course_id', $this->course->id)
+            ->where('user_id', $user->id)
+            ->delete();
+        session()->flash('success', __('courses.review_deleted'));
+
+        $this->userReview = null;
+        $this->reviewBody = '';
+        $this->loadReviews();
     }
 
     private function calculateMatchPercent(Course $course): int
@@ -54,5 +105,23 @@ class CourseShow extends Component
         $ratingPercent = is_null($ratingPercent) ? 0 : (int) round((float) $ratingPercent);
 
         return max(0, min(100, $ratingPercent));
+    }
+
+    private function loadReviews(): void
+    {
+        $this->reviews = Review::query()
+            ->with('user')
+            ->where('course_id', $this->course->id)
+            ->latest()
+            ->get();
+
+        $userId = auth()->id();
+        $this->userReview = $userId
+            ? $this->reviews->firstWhere('user_id', $userId)
+            : null;
+
+        if ($this->userReview) {
+            $this->reviewBody = $this->userReview->body;
+        }
     }
 }

@@ -51,11 +51,12 @@
                             $duration = 3 + ($course->id % 6);
                         @endphp
                         <article class="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-                            <div class="flex h-40 items-center justify-center bg-gradient-to-br from-teal-500 to-teal-400 text-white">
-                                <svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M4 6.5c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2V18c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6.5z" />
-                                    <path d="M9 4v16" />
-                                </svg>
+                            <div class="h-40 overflow-hidden bg-gray-100">
+                                <img
+                                    src="{{ $course->image_path }}"
+                                    alt="{{ $course->name }}"
+                                    class="h-full w-full object-cover"
+                                >
                             </div>
                             <div class="p-4">
                                 <div class="flex items-center justify-between gap-2">

@@ -9,6 +9,7 @@ return [
         'welcome' => 'مرحبًا بعودتك',
         'subtitle' => 'سجّل الدخول لمتابعة رحلتك',
         'email' => 'البريد الإلكتروني',
+        'email_placeholder' => 'you@example.com',
         'password' => 'كلمة المرور',
         'submit' => 'تسجيل الدخول',
         'loading' => 'جارٍ تسجيل الدخول...',

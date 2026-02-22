@@ -47,6 +47,15 @@
     }
 }
 
+.flash-success {
+    transition: opacity 30ms ease, transform 30ms ease;
+}
+
+.flash-success.flash-hide {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
 [data-flux-field]:not(ui-radio, ui-checkbox) {
     @apply grid gap-2;
 }

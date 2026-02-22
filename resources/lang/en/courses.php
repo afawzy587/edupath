@@ -19,6 +19,15 @@ return [
     'content_empty' => 'No content has been added yet.',
     'comments' => 'Comments',
     'comment_placeholder' => 'Write a comment...',
+    'send' => 'Send',
+    'update' => 'Update',
+    'delete' => 'Delete',
+    'anonymous' => 'Anonymous',
+    'your_review' => 'Your review',
+    'no_reviews' => 'No reviews yet.',
+    'review_created' => 'Review submitted successfully.',
+    'review_updated' => 'Review updated successfully.',
+    'review_deleted' => 'Review deleted successfully.',
     'tags' => [
         'leadership' => 'leadership',
         'communication' => 'communication',
@@ -32,4 +41,7 @@ return [
     'login_title' => 'Log in to continue',
     'login_subtitle' => 'Sign in to see the courses tailored for you.',
     'login_cta' => 'Log in',
+    'created_success' => 'Course created successfully.',
+    'updated_success' => 'Course updated successfully.',
+    'deleted_success' => 'Course deleted successfully.',
 ];

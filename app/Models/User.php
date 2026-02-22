@@ -11,6 +11,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use App\Models\Course;
+use App\Models\Review;
 
 class User extends Authenticatable
 {
@@ -73,6 +74,11 @@ class User extends Authenticatable
     public function courses()
     {
         return $this->belongsToMany(Course::class)->withTimestamps();
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
     public function isAdmin(): bool

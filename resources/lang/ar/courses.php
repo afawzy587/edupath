@@ -19,6 +19,15 @@ return [
     'content_empty' => 'لم يتم إضافة محتوى بعد.',
     'comments' => 'التعليقات',
     'comment_placeholder' => 'اكتب تعليقًا...',
+    'send' => 'إرسال',
+    'update' => 'تحديث',
+    'delete' => 'حذف',
+    'anonymous' => 'مستخدم مجهول',
+    'your_review' => 'تعليقك',
+    'no_reviews' => 'لا توجد تعليقات بعد.',
+    'review_created' => 'تم إرسال التعليق بنجاح.',
+    'review_updated' => 'تم تحديث التعليق بنجاح.',
+    'review_deleted' => 'تم حذف التعليق بنجاح.',
     'tags' => [
         'leadership' => 'القيادة',
         'communication' => 'التواصل',
@@ -32,4 +41,7 @@ return [
     'login_title' => 'سجّل الدخول للمتابعة',
     'login_subtitle' => 'سجّل الدخول للاطلاع على الدورات المناسبة لك.',
     'login_cta' => 'تسجيل الدخول',
+    'created_success' => 'تم إنشاء الدورة بنجاح.',
+    'updated_success' => 'تم تحديث الدورة بنجاح.',
+    'deleted_success' => 'تم حذف الدورة بنجاح.',
 ];

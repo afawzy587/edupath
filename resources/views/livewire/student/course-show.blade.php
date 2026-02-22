@@ -2,6 +2,14 @@
     @auth
         @include('partials.app-header')
 
+        @if (session()->has('success'))
+            <div class="flash-success fixed left-4 right-4 top-4 z-50 max-w-sm px-4 sm:left-auto sm:right-4">
+                <div class="rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-teal-800 shadow-lg">
+                    {{ session('success') }}
+                </div>
+            </div>
+        @endif
+
         <section class="bg-white py-12">
             <div class="mx-auto max-w-3xl px-4">
                 <div class="text-center">
@@ -33,30 +41,68 @@
                     <div>
                         <h2 class="text-sm font-semibold text-gray-700">{{ __('courses.content_title') }}</h2>
                         <div class="mt-2 rounded-xl border border-gray-100 bg-white px-6 py-8 text-center text-sm text-gray-500 shadow-sm">
-                            <svg class="mx-auto h-6 w-6 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M4 6.5c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2V18c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6.5z" />
-                                <path d="M9 4v16" />
-                            </svg>
+                            <img
+                                src="{{ $course->image_path }}"
+                                alt="{{ $course->name }}"
+                                class="mx-auto h-24 w-24 rounded-lg object-cover"
+                            >
                             <p class="mt-2">{{ $course->description }}</p>
                         </div>
                     </div>
 
                     <div>
                         <h2 class="text-sm font-semibold text-gray-700">{{ __('courses.comments') }}</h2>
-                        <div class="mt-2 flex items-center gap-3 rounded-xl border border-gray-100 bg-white px-4 py-3 shadow-sm">
-                            <input
-                                type="text"
-                                class="h-10 w-full border-0 bg-transparent text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-0"
+                        <div class="mt-2 rounded-xl border border-gray-100 bg-white px-4 py-4 shadow-sm">
+                            <textarea
+                                wire:model.defer="reviewBody"
+                                rows="3"
+                                class="w-full resize-none border-0 bg-transparent text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-0"
                                 placeholder="{{ __('courses.comment_placeholder') }}"
-                            />
-                            <button
-                                type="button"
-                                class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-teal-500 text-white shadow-sm transition hover:bg-teal-600"
-                            >
-                                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                    <path d="M3 11.5L21.5 4.5l-7 18-2.5-6.5L3 11.5z" />
-                                </svg>
-                            </button>
+                            ></textarea>
+                            @error('reviewBody')
+                                <p class="mt-2 text-xs text-red-600">{{ $message }}</p>
+                            @enderror
+                            <div class="mt-3 flex items-center justify-between">
+                                <button
+                                    type="button"
+                                    wire:click="saveReview"
+                                    class="inline-flex items-center justify-center rounded-lg bg-teal-500 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-teal-600"
+                                >
+                                    {{ $userReview ? __('courses.update') : __('courses.send') }}
+                                </button>
+                                @if ($userReview)
+                                    <button
+                                        type="button"
+                                        wire:click="deleteReview"
+                                        class="text-xs font-semibold text-gray-500 transition hover:text-red-600"
+                                    >
+                                        {{ __('courses.delete') }}
+                                    </button>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="mt-4 space-y-4">
+                            @forelse ($reviews as $review)
+                                <div class="rounded-xl border border-gray-100 bg-white px-4 py-3 shadow-sm">
+                                    <div class="flex items-center justify-between text-xs text-gray-500">
+                                        <span>{{ $review->user?->name ?? __('courses.anonymous') }}</span>
+                                        <div class="flex items-center gap-2">
+                                            @if (auth()->check() && $review->user_id === auth()->id())
+                                                <span class="rounded-full bg-teal-50 px-2 py-0.5 text-[10px] font-semibold text-teal-700">
+                                                    {{ __('courses.your_review') }}
+                                                </span>
+                                            @endif
+                                            <span>{{ $review->created_at?->diffForHumans() }}</span>
+                                        </div>
+                                    </div>
+                                    <p class="mt-2 text-sm text-gray-700">{{ $review->body }}</p>
+                                </div>
+                            @empty
+                                <div class="rounded-xl border border-dashed border-gray-200 bg-gray-50 px-4 py-6 text-center text-sm text-gray-500">
+                                    {{ __('courses.no_reviews') }}
+                                </div>
+                            @endforelse
                         </div>
                     </div>
                 </div>

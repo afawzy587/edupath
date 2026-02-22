@@ -50,7 +50,7 @@
                 @if (auth()->user()?->isAdmin())
                     <a wire:navigate href="{{ route('admin.dashboard') }}"
                        class="inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-gray-100 hover:text-gray-800">
-                        Admin
+                        {{ __('home.nav.admin') }}
                     </a>
                 @endif
             </nav>

@@ -7,6 +7,7 @@ return [
         'assessments' => 'اختبار هولاند',
         'hobbies' => 'الهوايات',
         'courses' => 'الدورات',
+        'admin' => 'المدير',
     ],
     'menu' => [
         'profile' => 'الملف الشخصي',

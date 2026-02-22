@@ -1,0 +1,170 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    'nav' => [
+        'dashboard' => 'لوحة التحكم',
+        'back_to_site' => 'العودة للموقع',
+        'admin' => 'المدير',
+    ],
+    'sidebar' => [
+        'title' => 'لوحة الإدارة',
+        'dashboard' => 'لوحة التحكم',
+        'courses' => 'الدورات',
+        'logout' => 'تسجيل الخروج',
+    ],
+    'courses' => [
+        'badge' => 'الدورات',
+        'title' => 'إدارة الدورات',
+        'subtitle' => 'أنشئ وأدر محتوى الدورات المترجم.',
+        'create_title' => 'إنشاء دورة',
+        'create_subtitle' => 'أضف بيانات الدورة وترجماتها.',
+        'edit_title' => 'تعديل الدورة',
+        'edit_subtitle' => 'حدّث بيانات الدورة وترجماتها.',
+        'empty' => 'لا توجد دورات بعد.',
+        'status' => [
+            'active' => 'نشطة',
+            'inactive' => 'غير نشطة',
+        ],
+        'locale' => [
+            'en' => 'محتوى الإنجليزية',
+            'ar' => 'محتوى العربية',
+        ],
+        'fields' => [
+            'category' => 'الفئة',
+            'instructor' => 'اسم المدرب',
+            'active' => 'دورة نشطة',
+            'name' => 'اسم الدورة',
+            'description' => 'الوصف',
+            'image' => 'صورة الغلاف',
+            'image_help' => 'ارفع صورة للدورة أو أدخل مسارًا.',
+            'image_path' => 'مسار الصورة',
+            'current_image' => 'الصورة الحالية',
+        ],
+        'actions' => [
+            'add' => 'إضافة دورة',
+            'create' => 'إنشاء الدورة',
+            'update' => 'تحديث الدورة',
+            'edit' => 'تعديل',
+            'delete' => 'حذف',
+            'cancel' => 'إلغاء',
+            'confirm_delete' => 'حذف هذه الدورة؟',
+        ],
+        'table' => [
+            'name' => 'الدورة',
+            'category' => 'الفئة',
+            'instructor' => 'المدرب',
+            'status' => 'الحالة',
+            'actions' => 'الإجراءات',
+        ],
+    ],
+    'menu' => [
+        'account' => 'حساب المدير',
+        'logout' => 'تسجيل الخروج',
+    ],
+    'login' => [
+        'portal' => 'بوابة الإدارة',
+        'headline' => 'أدر EduPath بثقة.',
+        'subhead' => 'سجّل الدخول لمراجعة الطلاب وتنظيم الدورات ومتابعة نشاط التقييمات.',
+        'insight_title' => 'رؤى فورية',
+        'insight_body' => 'تتبّع جميع النماذج في لوحة واحدة.',
+        'workflow_title' => 'عمليات مركّزة',
+        'workflow_body' => 'حافظ على اتساق المحتوى والترجمات والمستخدمين.',
+        'welcome_badge' => 'مرحبًا بعودتك',
+        'title' => 'تسجيل دخول المدير',
+        'subtitle' => 'استخدم بيانات المدير للمتابعة.',
+        'remember' => 'تذكرني',
+        'email_placeholder' => 'admin@example.com',
+    ],
+    'dashboard' => [
+        'badge' => 'لوحة تحكم الإدارة',
+        'welcome' => 'مرحبًا بعودتك، :name',
+        'subtitle' => 'أدر المنصة وراجع نشاط الطلاب وحافظ على تحديث المحتوى.',
+        'stats' => [
+            'active_courses' => 'الدورات النشطة',
+            'active_questions' => 'الأسئلة النشطة',
+            'total_answers' => 'إجمالي الإجابات',
+            'students' => 'الطلاب',
+            'students_badge' => '+جديد',
+            'students_note' => 'إجمالي المتعلمين المسجلين',
+            'admins' => 'المديرون',
+            'admins_badge' => 'الفريق',
+            'admins_note' => 'مستخدمو الإدارة',
+            'courses' => 'الدورات',
+            'courses_badge' => ':count نشطة',
+            'courses_note' => 'مسارات التعلم المتاحة',
+            'questions' => 'الأسئلة',
+            'questions_badge' => ':count نشطة',
+            'questions_note' => 'مخزون التقييمات',
+        ],
+        'recent_students' => [
+            'title' => 'الطلاب الجدد',
+            'subtitle' => 'آخر 6 تسجيلات',
+            'headers' => [
+                'student' => 'الطالب',
+                'school' => 'المدرسة',
+                'joined' => 'تاريخ الانضمام',
+            ],
+            'empty' => 'لا يوجد طلاب بعد.',
+        ],
+        'top_courses' => [
+            'title' => 'أفضل الدورات',
+            'subtitle' => 'حسب التسجيلات',
+            'uncategorized' => 'غير مصنفة',
+            'empty' => 'لا توجد دورات بعد.',
+        ],
+        'system_alerts' => [
+            'title' => 'تنبيهات النظام',
+            'inactive_courses' => 'الدورات غير النشطة',
+            'categories' => 'الفئات',
+            'answer_submissions' => 'إجابات مقدمة',
+        ],
+        'checklist' => [
+            'title' => 'قائمة المتابعة',
+            'item_one' => 'راجع تسجيلات الطلاب الجدد وتأكد من بيانات المدرسة.',
+            'item_two' => 'دقق نشاط الدورات وأوقف المحتوى القديم.',
+            'item_three' => 'حدّث التقييمات للحفاظ على دقة التوصيات.',
+        ],
+        'models' => [
+            'title' => 'متحكم النماذج',
+            'subtitle' => 'نظرة عامة على كل النماذج في النظام.',
+            'users' => [
+                'label' => 'المستخدمون',
+                'note' => 'كل الأدوار',
+            ],
+            'courses' => [
+                'label' => 'الدورات',
+                'note' => 'مسارات التعلم',
+            ],
+            'categories' => [
+                'label' => 'الفئات',
+                'note' => 'مجموعات المحتوى',
+            ],
+            'questions' => [
+                'label' => 'الأسئلة',
+                'note' => 'التقييمات',
+            ],
+            'answers' => [
+                'label' => 'الإجابات',
+                'note' => 'الإرسالات',
+            ],
+            'course_translations' => [
+                'label' => 'ترجمات الدورات',
+                'note' => 'دورات مترجمة',
+            ],
+            'course_translations_legacy' => [
+                'label' => 'ترجمات الدورات (قديمة)',
+                'note' => 'جدول قديم',
+            ],
+            'category_translations' => [
+                'label' => 'ترجمات الفئات',
+                'note' => 'فئات مترجمة',
+            ],
+            'question_translations' => [
+                'label' => 'ترجمات الأسئلة',
+                'note' => 'أسئلة مترجمة',
+            ],
+        ],
+    ],
+];

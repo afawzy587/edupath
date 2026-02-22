@@ -1,0 +1,170 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    'nav' => [
+        'dashboard' => 'Dashboard',
+        'back_to_site' => 'Back to Site',
+        'admin' => 'Admin',
+    ],
+    'sidebar' => [
+        'title' => 'Admin panel',
+        'dashboard' => 'Dashboard',
+        'courses' => 'Courses',
+        'logout' => 'Logout',
+    ],
+    'courses' => [
+        'badge' => 'Courses',
+        'title' => 'Course management',
+        'subtitle' => 'Create and manage localized course content.',
+        'create_title' => 'Create course',
+        'create_subtitle' => 'Add course details and translations.',
+        'edit_title' => 'Edit course',
+        'edit_subtitle' => 'Update course details and translations.',
+        'empty' => 'No courses yet.',
+        'status' => [
+            'active' => 'Active',
+            'inactive' => 'Inactive',
+        ],
+        'locale' => [
+            'en' => 'English content',
+            'ar' => 'Arabic content',
+        ],
+        'fields' => [
+            'category' => 'Category',
+            'instructor' => 'Instructor name',
+            'active' => 'Active course',
+            'name' => 'Course name',
+            'description' => 'Description',
+            'image' => 'Cover image',
+            'image_help' => 'Upload a course image or provide a path.',
+            'image_path' => 'Image path',
+            'current_image' => 'Current image',
+        ],
+        'actions' => [
+            'add' => 'Add course',
+            'create' => 'Create course',
+            'update' => 'Update course',
+            'edit' => 'Edit',
+            'delete' => 'Delete',
+            'cancel' => 'Cancel',
+            'confirm_delete' => 'Delete this course?',
+        ],
+        'table' => [
+            'name' => 'Course',
+            'category' => 'Category',
+            'instructor' => 'Instructor',
+            'status' => 'Status',
+            'actions' => 'Actions',
+        ],
+    ],
+    'menu' => [
+        'account' => 'Admin account',
+        'logout' => 'Logout',
+    ],
+    'login' => [
+        'portal' => 'Admin Portal',
+        'headline' => 'Manage EduPath with confidence.',
+        'subhead' => 'Sign in to review learners, curate courses, and monitor assessment activity.',
+        'insight_title' => 'Realtime insights',
+        'insight_body' => 'Track every model in one dashboard.',
+        'workflow_title' => 'Focused workflows',
+        'workflow_body' => 'Keep content, translations, and users aligned.',
+        'welcome_badge' => 'Welcome back',
+        'title' => 'Admin sign in',
+        'subtitle' => 'Use your admin credentials to continue.',
+        'remember' => 'Remember me',
+        'email_placeholder' => 'admin@example.com',
+    ],
+    'dashboard' => [
+        'badge' => 'Admin Dashboard',
+        'welcome' => 'Welcome back, :name',
+        'subtitle' => 'Manage the platform, review student activity, and keep content up to date.',
+        'stats' => [
+            'active_courses' => 'Active Courses',
+            'active_questions' => 'Active Questions',
+            'total_answers' => 'Total Answers',
+            'students' => 'Students',
+            'students_badge' => '+New',
+            'students_note' => 'Total enrolled learners',
+            'admins' => 'Admins',
+            'admins_badge' => 'Team',
+            'admins_note' => 'Management users',
+            'courses' => 'Courses',
+            'courses_badge' => ':count active',
+            'courses_note' => 'Available learning paths',
+            'questions' => 'Questions',
+            'questions_badge' => ':count active',
+            'questions_note' => 'Assessment inventory',
+        ],
+        'recent_students' => [
+            'title' => 'Recent Students',
+            'subtitle' => 'Last 6 signups',
+            'headers' => [
+                'student' => 'Student',
+                'school' => 'School',
+                'joined' => 'Joined',
+            ],
+            'empty' => 'No students yet.',
+        ],
+        'top_courses' => [
+            'title' => 'Top Courses',
+            'subtitle' => 'By enrollments',
+            'uncategorized' => 'Uncategorized',
+            'empty' => 'No courses yet.',
+        ],
+        'system_alerts' => [
+            'title' => 'System Alerts',
+            'inactive_courses' => 'Inactive courses',
+            'categories' => 'Categories',
+            'answer_submissions' => 'Answer submissions',
+        ],
+        'checklist' => [
+            'title' => 'Management Checklist',
+            'item_one' => 'Review new student registrations and confirm school details.',
+            'item_two' => 'Audit course activity and deactivate outdated content.',
+            'item_three' => 'Refresh assessments to keep recommendations accurate.',
+        ],
+        'models' => [
+            'title' => 'Model Controller',
+            'subtitle' => 'Overview of every model in the system.',
+            'users' => [
+                'label' => 'Users',
+                'note' => 'All roles',
+            ],
+            'courses' => [
+                'label' => 'Courses',
+                'note' => 'Learning paths',
+            ],
+            'categories' => [
+                'label' => 'Categories',
+                'note' => 'Content groups',
+            ],
+            'questions' => [
+                'label' => 'Questions',
+                'note' => 'Assessments',
+            ],
+            'answers' => [
+                'label' => 'Answers',
+                'note' => 'Submissions',
+            ],
+            'course_translations' => [
+                'label' => 'Course translations',
+                'note' => 'Localized courses',
+            ],
+            'course_translations_legacy' => [
+                'label' => 'Course translations (legacy)',
+                'note' => 'Legacy table',
+            ],
+            'category_translations' => [
+                'label' => 'Category translations',
+                'note' => 'Localized categories',
+            ],
+            'question_translations' => [
+                'label' => 'Question translations',
+                'note' => 'Localized questions',
+            ],
+        ],
+    ],
+];

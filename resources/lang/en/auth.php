@@ -9,6 +9,7 @@ return [
         'welcome' => 'Welcome back',
         'subtitle' => 'Sign in to continue your journey',
         'email' => 'Email',
+        'email_placeholder' => 'you@example.com',
         'password' => 'Password',
         'submit' => 'Sign in',
         'loading' => 'Signing in...',

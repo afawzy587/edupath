@@ -19,11 +19,11 @@
                             <path d="M3 17h8v4H3z" />
                         </svg>
                     </span>
-                    Dashboard
+                    {{ __('admin.nav.dashboard') }}
                 </a>
                 <a wire:navigate href="{{ route('landing-page') }}"
                    class="inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-gray-100 hover:text-gray-800">
-                    Back to Site
+                    {{ __('admin.nav.back_to_site') }}
                 </a>
             </nav>
 
@@ -35,12 +35,12 @@
                 </summary>
                 <div class="absolute end-0 mt-2 w-48 rounded-lg border border-gray-200 bg-white shadow-lg">
                     <span class="block px-4 py-2 text-xs text-gray-500">
-                        Admin account
+                        {{ __('admin.menu.account') }}
                     </span>
                     <form method="POST" action="{{ route('student.logout') }}">
                         @csrf
                         <button type="submit" class="w-full text-start px-4 py-2 text-sm text-red-600 hover:bg-red-50">
-                            Logout
+                            {{ __('admin.menu.logout') }}
                         </button>
                     </form>
                 </div>
