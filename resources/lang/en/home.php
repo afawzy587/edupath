@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 return [
     'nav' => [
-        'explore' => 'Explore',
         'assessments' => 'Holland Test',
         'hobbies' => 'Hobbies',
         'courses' => 'Courses',
@@ -19,26 +18,6 @@ return [
     'hero_title_highlight' => 'Perfect career journey',
     'hero_subtitle' => 'Take science-backed assessments, discover your strengths, and get personalized course recommendations.',
     'hero_cta' => 'Start assessment',
-    'explore' => [
-        'title' => 'Explore',
-        'subtitle' => 'Discover new fields that match your personality',
-        'filters' => [
-            'Enterprising',
-            'Social',
-            'Technical',
-            'Civil',
-            'Creative',
-            'Artistic',
-            'Craft',
-            'Service',
-        ],
-        'card' => [
-            'progress' => '1/3',
-            'title' => 'Photography Basics',
-            'subtitle' => 'Capture beautiful moments and learn to see the world through a lens.',
-            'tag' => 'Art',
-        ],
-    ],
     'cards' => [
         'smart_courses' => [
             'title' => 'Smart Courses',

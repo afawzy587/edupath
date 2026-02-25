@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class CourseTranslation extends Model
 {
-    protected $fillable = ['name', 'description', 'image', 'video'];
+    protected $fillable = ['name', 'description', 'image'];
 }

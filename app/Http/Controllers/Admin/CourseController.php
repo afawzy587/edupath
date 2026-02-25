@@ -55,14 +55,10 @@ class CourseController extends Controller
             'description_en' => ['nullable', 'string'],
             'description_ar' => ['nullable', 'string'],
             'image' => ['nullable', 'image', 'max:2048'],
-            'video' => ['nullable', 'file', 'mimetypes:video/mp4,video/webm,video/ogg,video/quicktime', 'max:20480'],
         ]);
 
         if ($request->hasFile('image')) {
             $imagePath = $this->uploadFile($request->file('image'), 'courses', 'public');
-        }
-        if ($request->hasFile('video')) {
-            $videoPath = $this->uploadFile($request->file('video'), 'courses/videos', 'public');
         }
 
         $course = Course::query()->create([
@@ -74,12 +70,10 @@ class CourseController extends Controller
         $course->translateOrNew('en')->name = $data['name_en'];
         $course->translateOrNew('en')->description = $data['description_en'] ?? null;
         $course->translateOrNew('en')->image = $imagePath ?? null;
-        $course->translateOrNew('en')->video = $videoPath ?? null;
 
         $course->translateOrNew('ar')->name = $data['name_ar'];
         $course->translateOrNew('ar')->description = $data['description_ar'] ?? null;
         $course->translateOrNew('ar')->image = $imagePath ?? null;
-        $course->translateOrNew('ar')->video = $videoPath ?? null;
 
         $course->save();
 
@@ -132,16 +126,11 @@ class CourseController extends Controller
             'description_en' => ['nullable', 'string'],
             'description_ar' => ['nullable', 'string'],
             'image' => ['nullable', 'image', 'max:2048'],
-            'video' => ['nullable', 'file', 'mimetypes:video/mp4,video/webm,video/ogg,video/quicktime', 'max:20480'],
         ]);
 
         $imagePath = $course->translate('en')?->image ?? null;
         if ($request->hasFile('image')) {
             $imagePath = $this->uploadFile($request->file('image'), 'courses', 'public');
-        }
-        $videoPath = $course->translate('en')?->video ?? null;
-        if ($request->hasFile('video')) {
-            $videoPath = $this->uploadFile($request->file('video'), 'courses/videos', 'public');
         }
 
         $course->fill([
@@ -153,12 +142,10 @@ class CourseController extends Controller
         $course->translateOrNew('en')->name = $data['name_en'];
         $course->translateOrNew('en')->description = $data['description_en'] ?? null;
         $course->translateOrNew('en')->image = $imagePath;
-        $course->translateOrNew('en')->video = $videoPath;
 
         $course->translateOrNew('ar')->name = $data['name_ar'];
         $course->translateOrNew('ar')->description = $data['description_ar'] ?? null;
         $course->translateOrNew('ar')->image = $imagePath;
-        $course->translateOrNew('ar')->video = $videoPath;
 
         $course->save();
 
