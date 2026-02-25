@@ -16,9 +16,6 @@
                     <h1 class="text-2xl font-semibold text-gray-900">
                         {{ $course->name }}
                     </h1>
-                    <p class="mt-2 text-sm text-gray-500">
-                        {{ $course->description }}
-                    </p>
                     <div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs">
 
                             <span class="rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-teal-700">
@@ -43,19 +40,26 @@
 
 
                             <div class="mt-2 rounded-xl border border-gray-100 bg-white px-6 py-8 text-center text-sm text-gray-500 shadow-sm">
-                                @if($course->image)
-                                <img
-                                    src="{{ $course->image_path }}"
-                                    alt="{{ $course->name }}"
-                                    class="mx-auto h-24 w-24 rounded-lg object-cover"
-                                >
-                                @else
-                                    <svg class="mx-auto h-6 w-6 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M4 6.5c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2V18c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6.5z" />
-                                        <path d="M9 4v16" />
-                                    </svg>
-                                @endif
-                                <p class="mt-2">{{ $course->description }}</p>
+                                    @if($course->video)
+                                        <div class="mx-auto mb-4 overflow-hidden rounded-lg border border-gray-200">
+                                            <video class="h-full w-full" controls playsinline src="{{ $course->video_path }}"></video>
+                                        </div>
+                                    @endif
+                                    @if($course->image)
+                                        <img
+                                            src="{{ $course->image_path }}"
+                                            alt="{{ $course->name }}"
+                                            class="mx-auto h-50 w-50 rounded-lg object-cover"
+
+                                        >
+                                    @endif
+                                    @if(!$course->video && !$course->image)
+                                        <svg class="mx-auto h-6 w-6 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M4 6.5c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2V18c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6.5z" />
+                                            <path d="M9 4v16" />
+                                        </svg>
+                                    @endif
+                                    <p class="mt-2 mx-auto max-w-2xl break-words">{{ $course->description }}</p>
                             </div>
 
 
