@@ -17,6 +17,8 @@ return [
     'matching' => 'Matching',
     'content_title' => 'Course content',
     'content_empty' => 'No content has been added yet.',
+    'related_videos' => 'More videos in this category',
+    'watch' => 'Watch now',
     'comments' => 'Comments',
     'comment_placeholder' => 'Write a comment...',
     'send' => 'Send',

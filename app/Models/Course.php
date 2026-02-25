@@ -19,7 +19,7 @@ class Course extends Model
     use SoftDeletes;
     use UploadFileTrait;
 
-    public $translatedAttributes = ['name', 'description', 'image'];
+    public $translatedAttributes = ['name', 'description', 'image', 'video'];
     protected $fillable = ['category_id', 'instructor_name', 'active'];
 
     public function category()
@@ -40,6 +40,11 @@ class Course extends Model
     public function getImagePathAttribute()
     {
         return $this->getFileUrl($this->image);
+    }
+
+    public function getVideoPathAttribute()
+    {
+        return $this->getFileUrl($this->video);
     }
 
 }

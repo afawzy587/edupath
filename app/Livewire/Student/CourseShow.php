@@ -16,6 +16,7 @@ class CourseShow extends Component
     public string $reviewBody = '';
     public ?Review $userReview = null;
     public $reviews = [];
+    public $relatedVideos = [];
 
     public function mount(Course $course)
     {
@@ -26,6 +27,7 @@ class CourseShow extends Component
         $this->course = $course;
         $this->matchPercent = $this->calculateMatchPercent($course);
         $this->loadReviews();
+        $this->loadRelatedVideos();
     }
 
     public function getDurationProperty(): int
@@ -122,5 +124,26 @@ class CourseShow extends Component
         if ($this->userReview) {
             $this->reviewBody = $this->userReview->body;
         }
+    }
+
+    private function loadRelatedVideos(): void
+    {
+        if (! $this->course->category_id) {
+            $this->relatedVideos = collect();
+            return;
+        }
+
+        $locale = app()->getLocale();
+
+        $this->relatedVideos = Course::query()
+            ->with('translations')
+            ->where('category_id', $this->course->category_id)
+            ->whereKeyNot($this->course->id)
+            ->whereHas('translations', function ($query) use ($locale): void {
+                $query->where('locale', $locale)
+                    ->whereNotNull('video');
+            })
+            ->latest()
+            ->get();
     }
 }

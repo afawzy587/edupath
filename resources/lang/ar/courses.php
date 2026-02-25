@@ -17,6 +17,8 @@ return [
     'matching' => 'تطابق',
     'content_title' => 'محتوى الدورة',
     'content_empty' => 'لم يتم إضافة محتوى بعد.',
+    'related_videos' => 'المزيد من الفيديوهات في نفس الفئة',
+    'watch' => 'شاهد الآن',
     'comments' => 'التعليقات',
     'comment_placeholder' => 'اكتب تعليقًا...',
     'send' => 'إرسال',

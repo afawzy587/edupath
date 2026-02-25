@@ -41,6 +41,9 @@ return [
             'image_help' => 'Upload a course image or provide a path.',
             'image_path' => 'Image path',
             'current_image' => 'Current image',
+            'video' => 'Course video',
+            'video_help' => 'Upload a short intro video (mp4, webm, or mov).',
+            'current_video' => 'Current video',
         ],
         'actions' => [
             'add' => 'Add course',

@@ -58,38 +58,54 @@
                 <span class="mt-2 block text-sm text-red-500">{{ $message }}</span>
             @enderror
         </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">{{ __('admin.courses.fields.video') }}</label>
+            <input type="file" name="video" accept="video/*" class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-sm">
+            <p class="mt-2 text-xs text-gray-400">{{ __('admin.courses.fields.video_help') }}</p>
+            @if ($isEdit && optional($course)->translate('en')?->video)
+                <div class="mt-3 flex items-center gap-3 text-xs text-gray-500">
+                    <a href="{{ $course->video_path }}" target="_blank" class="text-teal-600 hover:text-teal-700">
+                        {{ __('admin.courses.fields.current_video') }}
+                    </a>
+                </div>
+            @endif
+            @error('video')
+                <span class="mt-2 block text-sm text-red-500">{{ $message }}</span>
+            @enderror
+        </div>
     </div>
 
     <div class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm space-y-6">
-        <div>
-            <p class="text-sm font-semibold text-gray-900">{{ __('admin.courses.locale.en') }}</p>
-            <div class="mt-4 space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">{{ __('admin.courses.fields.name') }}</label>
-                    <input
-                        type="text"
-                        name="name_en"
-                        value="{{ old('name_en', optional($course)->translate('en')?->name ?? '') }}"
-                        class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-sm"
-                    >
-                    @error('name_en')
-                        <span class="mt-2 block text-sm text-red-500">{{ $message }}</span>
-                    @enderror
-                </div>
+{{--        <div>--}}
+{{--            <p class="text-sm font-semibold text-gray-900">{{ __('admin.courses.locale.en') }}</p>--}}
+{{--            <div class="mt-4 space-y-4">--}}
+{{--                <div>--}}
+{{--                    <label class="block text-sm font-medium text-gray-700">{{ __('admin.courses.fields.name') }}</label>--}}
+{{--                    <input--}}
+{{--                        type="text"--}}
+{{--                        name="name_en"--}}
+{{--                        value="{{ old('name_en', optional($course)->translate('en')?->name ?? '') }}"--}}
+{{--                        class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-sm"--}}
+{{--                    >--}}
+{{--                    @error('name_en')--}}
+{{--                        <span class="mt-2 block text-sm text-red-500">{{ $message }}</span>--}}
+{{--                    @enderror--}}
+{{--                </div>--}}
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">{{ __('admin.courses.fields.description') }}</label>
-                    <textarea
-                        name="description_en"
-                        rows="5"
-                        class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-sm"
-                    >{{ old('description_en', optional($course)->translate('en')?->description ?? '') }}</textarea>
-                    @error('description_en')
-                        <span class="mt-2 block text-sm text-red-500">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
-        </div>
+{{--                <div>--}}
+{{--                    <label class="block text-sm font-medium text-gray-700">{{ __('admin.courses.fields.description') }}</label>--}}
+{{--                    <textarea--}}
+{{--                        name="description_en"--}}
+{{--                        rows="5"--}}
+{{--                        class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-sm"--}}
+{{--                    >{{ old('description_en', optional($course)->translate('en')?->description ?? '') }}</textarea>--}}
+{{--                    @error('description_en')--}}
+{{--                        <span class="mt-2 block text-sm text-red-500">{{ $message }}</span>--}}
+{{--                    @enderror--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         <div>
             <p class="text-sm font-semibold text-gray-900">{{ __('admin.courses.locale.ar') }}</p>
