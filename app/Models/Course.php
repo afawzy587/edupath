@@ -14,10 +14,10 @@ use App\Models\Review;
 
 class Course extends Model
 {
-    use HashedId,
-        Translatable,
-        SoftDeletes,
-        UploadFileTrait;
+    use HashedId;
+    use Translatable;
+    use SoftDeletes;
+    use UploadFileTrait;
 
     public $translatedAttributes = ['name', 'description', 'image'];
     protected $fillable = ['category_id', 'instructor_name', 'active'];
@@ -39,7 +39,7 @@ class Course extends Model
 
     public function getImagePathAttribute()
     {
-         return $this->getFileUrl($this->image);
+        return $this->getFileUrl($this->image);
     }
 
 }

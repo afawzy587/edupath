@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Traits;
 
 use Illuminate\Http\UploadedFile;
@@ -18,7 +20,7 @@ trait UploadFileTrait
      */
     public function uploadFile(UploadedFile $file, string $directory = 'uploads', ?string $disk = null): ?string
     {
-        $disk = $disk ?? config('filesystems.default');
+        $disk ??= config('filesystems.default');
         try {
             $extension = $file->guessExtension()
                 ?? $file->extension()
@@ -46,7 +48,7 @@ trait UploadFileTrait
      */
     public function deleteFile(string $filePath, ?string $disk = null): bool
     {
-        $disk = $disk ?? config('filesystems.default');
+        $disk ??= config('filesystems.default');
 
         try {
             return Storage::disk($disk)->exists($filePath)
@@ -71,7 +73,7 @@ trait UploadFileTrait
      */
     public function getFileUrl(?string $filePath = null, ?string $disk = null): ?string
     {
-        $disk = $disk ?? config('filesystems.default');
+        $disk ??= config('filesystems.default');
         return $filePath ? Storage::disk($disk)->url($filePath) : null;
     }
 }

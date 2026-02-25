@@ -56,7 +56,7 @@ class Courses extends Component
             ->where('active', true)
             ->when(
                 $this->activeCategoryId,
-                fn ($query) => $query->where('courses.category_id', $this->activeCategoryId)
+                fn($query) => $query->where('courses.category_id', $this->activeCategoryId)
             )
             ->with(['translations', 'category.translations']);
 
@@ -74,7 +74,7 @@ class Courses extends Component
                 ->groupBy('questions.category_id');
 
             $coursesQuery
-                ->leftJoinSub($categoryRatings, 'category_ratings', function ($join) {
+                ->leftJoinSub($categoryRatings, 'category_ratings', function ($join): void {
                     $join->on('courses.category_id', '=', 'category_ratings.category_id');
                 })
                 ->orderByDesc('category_ratings.rating_percent')

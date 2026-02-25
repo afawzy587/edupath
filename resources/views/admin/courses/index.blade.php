@@ -31,9 +31,8 @@
                         <tbody class="divide-y divide-gray-100">
                             @forelse ($courses as $course)
                                 <tr>
-                                    <td class="px-4 py-3">
+                                    <td class="px-4 py-3" style="max-width: 200px">
                                         <p class="font-semibold text-gray-900">{{ $course->name }}</p>
-                                        <p class="text-xs text-gray-500">{{ $course->translate('en')?->description }}</p>
                                     </td>
                                     <td class="px-4 py-3 text-gray-600">{{ $course->category?->name }}</td>
                                     <td class="px-4 py-3 text-gray-600">{{ $course->instructor_name }}</td>

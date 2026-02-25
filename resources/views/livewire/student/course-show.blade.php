@@ -40,14 +40,26 @@
 
                     <div>
                         <h2 class="text-sm font-semibold text-gray-700">{{ __('courses.content_title') }}</h2>
-                        <div class="mt-2 rounded-xl border border-gray-100 bg-white px-6 py-8 text-center text-sm text-gray-500 shadow-sm">
-                            <img
-                                src="{{ $course->image_path }}"
-                                alt="{{ $course->name }}"
-                                class="mx-auto h-24 w-24 rounded-lg object-cover"
-                            >
-                            <p class="mt-2">{{ $course->description }}</p>
-                        </div>
+
+
+                            <div class="mt-2 rounded-xl border border-gray-100 bg-white px-6 py-8 text-center text-sm text-gray-500 shadow-sm">
+                                @if($course->image)
+                                <img
+                                    src="{{ $course->image_path }}"
+                                    alt="{{ $course->name }}"
+                                    class="mx-auto h-24 w-24 rounded-lg object-cover"
+                                >
+                                @else
+                                    <svg class="mx-auto h-6 w-6 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M4 6.5c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2V18c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6.5z" />
+                                        <path d="M9 4v16" />
+                                    </svg>
+                                @endif
+                                <p class="mt-2">{{ $course->description }}</p>
+                            </div>
+
+
+
                     </div>
 
                     <div>

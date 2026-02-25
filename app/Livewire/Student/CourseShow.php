@@ -11,7 +11,6 @@ use Livewire\Component;
 
 class CourseShow extends Component
 {
-
     public Course $course;
     public int $matchPercent = 0;
     public string $reviewBody = '';
