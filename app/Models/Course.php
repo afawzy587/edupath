@@ -20,7 +20,7 @@ class Course extends Model
     use UploadFileTrait;
 
     public $translatedAttributes = ['name', 'description', 'image'];
-    protected $fillable = ['category_id', 'instructor_name', 'active'];
+    protected $fillable = ['category_id', 'instructor_name', 'active', 'video'];
 
     public function category()
     {
@@ -37,9 +37,19 @@ class Course extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'course_likes')->withTimestamps();
+    }
+
     public function getImagePathAttribute()
     {
         return $this->getFileUrl($this->image);
+    }
+
+    public function getVideoPathAttribute()
+    {
+        return $this->getFileUrl($this->video);
     }
 
 }

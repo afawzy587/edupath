@@ -58,6 +58,27 @@
                 <span class="mt-2 block text-sm text-red-500">{{ $message }}</span>
             @enderror
         </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">{{ __('admin.courses.fields.video') }}</label>
+            <input type="file" name="video" class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-sm">
+            <p class="mt-2 text-xs text-gray-400">{{ __('admin.courses.fields.video_help') }}</p>
+            @if ($isEdit && $course?->video)
+                <div class="mt-3 flex items-center gap-3 text-xs text-gray-500">
+                    <a href="{{ $course->video_path }}" target="_blank" class="inline-flex items-center gap-2">
+                        <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-gray-600">
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </span>
+                        <span>{{ __('admin.courses.fields.current_video') }}</span>
+                    </a>
+                </div>
+            @endif
+            @error('video')
+                <span class="mt-2 block text-sm text-red-500">{{ $message }}</span>
+            @enderror
+        </div>
     </div>
 
     <div class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm space-y-6">

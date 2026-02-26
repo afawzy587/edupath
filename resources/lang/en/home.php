@@ -7,6 +7,7 @@ return [
         'assessments' => 'Holland Test',
         'hobbies' => 'Hobbies',
         'courses' => 'Courses',
+        'explore' => 'Explore',
         'admin' => 'Admin',
     ],
     'menu' => [

@@ -51,23 +51,43 @@
                             $duration = 3 + ($course->id % 6);
                         @endphp
                         <article class="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-                            @if($course->image)
-                                <div class="h-40 overflow-hidden bg-gray-100">
+                            <div class="relative h-44 overflow-hidden bg-gray-900">
+                                @if($course->video)
+                                    <video
+                                        class="h-full w-full object-cover"
+                                        preload="metadata"
+                                        muted
+                                        playsinline
+                                        src="{{ $course->video_path }}"
+                                    ></video>
+                                @elseif($course->image)
                                     <img
                                         src="{{ $course->image_path }}"
                                         alt="{{ $course->name }}"
                                         class="h-full w-full object-cover"
                                     >
-                                </div>
-                            @else
-
-                                <div class="flex h-40 items-center justify-center bg-gradient-to-br from-teal-500 to-teal-400 text-white">
-                                    <svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M4 6.5c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2V18c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6.5z" />
-                                        <path d="M9 4v16" />
-                                    </svg>
-                                </div>
-                            @endif
+                                @else
+                                    <div class="flex h-full items-center justify-center bg-gradient-to-br from-teal-500 to-teal-400 text-white">
+                                        <svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M4 6.5c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2V18c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6.5z" />
+                                            <path d="M9 4v16" />
+                                        </svg>
+                                    </div>
+                                @endif
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+                                @if($course->video)
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="flex h-12 w-12 items-center justify-center rounded-full bg-white/80 text-gray-900 shadow-sm">
+                                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                @endif
+                                <span class="absolute left-3 top-3 inline-flex items-center rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold text-gray-800">
+                                    {{ $course->category?->name }}
+                                </span>
+                            </div>
 
                             <div class="p-4">
                                 <div class="flex items-center justify-between gap-2">

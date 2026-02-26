@@ -41,6 +41,9 @@ return [
             'image_help' => 'ارفع صورة للدورة أو أدخل مسارًا.',
             'image_path' => 'مسار الصورة',
             'current_image' => 'الصورة الحالية',
+            'video' => 'فيديو الدورة',
+            'video_help' => 'ارفع فيديو للدورة (MP4 أو WebM أو MOV).',
+            'current_video' => 'الفيديو الحالي',
         ],
         'actions' => [
             'add' => 'إضافة دورة',

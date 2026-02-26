@@ -7,11 +7,12 @@
                     <span class="text-lg">🎓</span>
                 </a>
             </div>
-
+    {{$pageName}}
             @php
                 $isAssessments = request()->routeIs('student.assessments') || request()->is('*assessments*') || (isset($pageName) && $pageName === 'assessments');
                 $isHobbies = request()->routeIs('student.hobbies') || request()->is('*hobbies*') || (isset($pageName) && $pageName === 'hobbies');
-                $isCourses = request()->routeIs('student.courses') || request()->is('*courses*');
+                $isCourses = request()->routeIs('student.courses') || request()->is('*courses*') || (isset($pageName) && $pageName === 'courses');
+                $isExplore = request()->routeIs('student.explore') || request()->is('*explore*') || (isset($pageName) && $pageName === 'explore');
             @endphp
             <nav class="flex flex-wrap items-center gap-2 text-sm text-gray-600">
 
@@ -46,6 +47,18 @@
                         </svg>
                     </span>
                     {{ __('home.nav.courses') }}
+                </a>
+                <a wire:navigate href="{{ route('student.explore') }}"
+                   @if ($isExplore) aria-current="page" @endif
+                   class="group inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-teal-50 hover:text-teal-700 aria-[current=page]:bg-teal-600 aria-[current=page]:text-white">
+                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal-100 text-teal-700 transition group-aria-[current=page]:bg-white/20 group-aria-[current=page]:text-white">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="8" />
+                            <path d="M12 4v4l3-3" />
+                            <path d="M12 12l4 4" />
+                        </svg>
+                    </span>
+                    {{ __('home.nav.explore') }}
                 </a>
                 @if (auth()->user()?->isAdmin())
                     <a wire:navigate href="{{ route('admin.dashboard') }}"

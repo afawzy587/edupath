@@ -81,6 +81,11 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
+    public function likedCourses()
+    {
+        return $this->belongsToMany(Course::class, 'course_likes')->withTimestamps();
+    }
+
     public function isAdmin(): bool
     {
         return $this->type === 'admin';

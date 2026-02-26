@@ -13,6 +13,8 @@ class Courses extends Component
 {
     public ?int $activeCategoryId = null;
 
+    public ?string $pageName = 'courses';
+
     public function setCategory(?int $categoryId = null): void
     {
         $this->activeCategoryId = $categoryId;

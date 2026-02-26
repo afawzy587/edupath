@@ -55,16 +55,21 @@ class CourseController extends Controller
             'description_en' => ['nullable', 'string'],
             'description_ar' => ['nullable', 'string'],
             'image' => ['nullable', 'image', 'max:2048'],
+            'video' => ['nullable', 'file', 'mimetypes:video/mp4,video/quicktime,video/webm,video/ogg', 'max:51200'],
         ]);
 
         if ($request->hasFile('image')) {
             $imagePath = $this->uploadFile($request->file('image'), 'courses', 'public');
+        }
+        if ($request->hasFile('video')) {
+            $videoPath = $this->uploadFile($request->file('video'), 'courses/videos', 'public');
         }
 
         $course = Course::query()->create([
             'category_id' => $data['category_id'],
             'instructor_name' => $data['instructor_name'],
             'active' => (bool) ($data['active'] ?? true),
+            'video' => $videoPath ?? null,
         ]);
 
         $course->translateOrNew('en')->name = $data['name_en'];
@@ -126,17 +131,23 @@ class CourseController extends Controller
             'description_en' => ['nullable', 'string'],
             'description_ar' => ['nullable', 'string'],
             'image' => ['nullable', 'image', 'max:2048'],
+            'video' => ['nullable', 'file', 'mimetypes:video/mp4,video/quicktime,video/webm,video/ogg', 'max:51200'],
         ]);
 
         $imagePath = $course->translate('en')?->image ?? null;
         if ($request->hasFile('image')) {
             $imagePath = $this->uploadFile($request->file('image'), 'courses', 'public');
         }
+        $videoPath = $course->video;
+        if ($request->hasFile('video')) {
+            $videoPath = $this->uploadFile($request->file('video'), 'courses/videos', 'public');
+        }
 
         $course->fill([
             'category_id' => $data['category_id'],
             'instructor_name' => $data['instructor_name'],
             'active' => (bool) ($data['active'] ?? $course->active),
+            'video' => $videoPath,
         ]);
 
         $course->translateOrNew('en')->name = $data['name_en'];

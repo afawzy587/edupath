@@ -17,6 +17,8 @@ class CourseShow extends Component
     public ?Review $userReview = null;
     public $reviews = [];
 
+    public ?string $pageName = 'courses';
+
     public function mount(Course $course)
     {
         if (! $course->active) {

@@ -1,3 +1,24 @@
+const initExploreVideos = () => {
+    document.querySelectorAll('[data-explore-video]').forEach((video) => {
+        if (video.dataset.exploreInit === '1') {
+            return;
+        }
+        video.dataset.exploreInit = '1';
+        const toggleMute = () => {
+            video.muted = ! video.muted;
+            if (! video.muted) {
+                const playPromise = video.play();
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(() => {});
+                }
+            }
+        };
+        video.addEventListener('click', () => {
+            toggleMute();
+        });
+    });
+};
+
 const hideFlashSuccess = () => {
     document.querySelectorAll('.flash-success').forEach((flash) => {
         if (flash.dataset.flashInit === '1') {
@@ -14,6 +35,7 @@ const hideFlashSuccess = () => {
 };
 
 document.addEventListener('DOMContentLoaded', hideFlashSuccess);
+document.addEventListener('DOMContentLoaded', () => initExploreVideos());
 
 const initFlashSuccessObserver = () => {
     if (! document.body || window.__flashSuccessObserver) {
@@ -79,3 +101,4 @@ document.addEventListener('livewire:init', () => {
 });
 
 document.addEventListener('livewire:navigated', hideFlashSuccess);
+document.addEventListener('livewire:navigated', () => initExploreVideos());
