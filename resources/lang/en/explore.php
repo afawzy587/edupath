@@ -9,6 +9,8 @@ return [
     'empty' => 'No video courses to explore yet.',
     'unmute' => 'Tap to unmute',
     'mute' => 'Mute',
+    'play' => 'Play',
+    'pause' => 'Pause',
     'like' => 'Like',
     'comment' => 'Comment',
     'save' => 'Save',

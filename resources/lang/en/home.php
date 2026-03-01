@@ -8,6 +8,7 @@ return [
         'hobbies' => 'Hobbies',
         'courses' => 'Courses',
         'explore' => 'Explore',
+        'profile' => 'Profile',
         'admin' => 'Admin',
     ],
     'menu' => [

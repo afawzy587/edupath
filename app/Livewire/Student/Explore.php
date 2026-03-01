@@ -6,6 +6,7 @@ namespace App\Livewire\Student;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\ExploreInteraction;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -41,6 +42,72 @@ class Explore extends Component
         } else {
             $user->likedCourses()->attach($courseId);
         }
+    }
+
+    public function trackView(int $courseId): void
+    {
+        $user = auth()->user();
+        if (! $user) {
+            return;
+        }
+
+        $courseExists = Course::query()
+            ->whereKey($courseId)
+            ->where('active', true)
+            ->whereNotNull('video')
+            ->where('video', '!=', '')
+            ->exists();
+
+        if (! $courseExists) {
+            return;
+        }
+
+        $interaction = ExploreInteraction::query()->firstOrCreate(
+            [
+                'user_id' => $user->id,
+                'course_id' => $courseId,
+            ],
+            [
+                'views_count' => 0,
+                'watch_seconds' => 0,
+            ]
+        );
+
+        $interaction->increment('views_count');
+    }
+
+    public function trackWatchTime(int $courseId, int $seconds): void
+    {
+        $user = auth()->user();
+        if (! $user) {
+            return;
+        }
+
+        $safeSeconds = max(1, min($seconds, 300));
+
+        $courseExists = Course::query()
+            ->whereKey($courseId)
+            ->where('active', true)
+            ->whereNotNull('video')
+            ->where('video', '!=', '')
+            ->exists();
+
+        if (! $courseExists) {
+            return;
+        }
+
+        $interaction = ExploreInteraction::query()->firstOrCreate(
+            [
+                'user_id' => $user->id,
+                'course_id' => $courseId,
+            ],
+            [
+                'views_count' => 0,
+                'watch_seconds' => 0,
+            ]
+        );
+
+        $interaction->increment('watch_seconds', $safeSeconds);
     }
 
     public function render()

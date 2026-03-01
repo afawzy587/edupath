@@ -7,12 +7,12 @@
                     <span class="text-lg">🎓</span>
                 </a>
             </div>
-    {{$pageName}}
             @php
                 $isAssessments = request()->routeIs('student.assessments') || request()->is('*assessments*') || (isset($pageName) && $pageName === 'assessments');
                 $isHobbies = request()->routeIs('student.hobbies') || request()->is('*hobbies*') || (isset($pageName) && $pageName === 'hobbies');
                 $isCourses = request()->routeIs('student.courses') || request()->is('*courses*') || (isset($pageName) && $pageName === 'courses');
                 $isExplore = request()->routeIs('student.explore') || request()->is('*explore*') || (isset($pageName) && $pageName === 'explore');
+                $isProfile = request()->routeIs('student.profile') || request()->is('*profile*') || (isset($pageName) && $pageName === 'profile');
             @endphp
             <nav class="flex flex-wrap items-center gap-2 text-sm text-gray-600">
 
@@ -75,7 +75,7 @@
                     </span>
                 </summary>
                 <div class="absolute end-0 mt-2 w-48 rounded-lg border border-gray-200 bg-white shadow-lg">
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                    <a wire:navigate href="{{ route('student.profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 @if($isProfile) bg-teal-50 text-teal-700 @endif">
                         {{ __('home.menu.profile') }}
                     </a>
                     <form method="POST" action="{{ route('student.logout') }}">

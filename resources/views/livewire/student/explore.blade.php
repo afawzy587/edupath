@@ -1,4 +1,4 @@
-<div>
+<div data-explore-component-id="{{ $this->getId() }}">
     @auth
         @include('partials.app-header')
 
@@ -17,6 +17,7 @@
                     <button
                         type="button"
                         wire:click="setCategory"
+                        data-explore-filter
                         @class([
                             'rounded-full px-3 py-1',
                             'bg-rose-500 text-white' => $activeCategoryId === null,
@@ -29,6 +30,7 @@
                         <button
                             type="button"
                             wire:click="setCategory({{ $category->id }})"
+                            data-explore-filter
                             @class([
                                 'rounded-full px-3 py-1',
                                 'bg-rose-500 text-white' => $activeCategoryId === $category->id,
@@ -47,11 +49,11 @@
                                 <video
                                     class="h-full w-full object-cover"
                                     preload="metadata"
-                                    autoplay
                                     loop
                                     muted
                                     playsinline
                                     data-explore-video
+                                    data-course-id="{{ $course->id }}"
                                     src="{{ $course->video_path }}"
                                 ></video>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
@@ -61,6 +63,42 @@
                                 <span class="absolute right-4 top-4 inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-gray-800">
                                     {{ $course->category?->name }}
                                 </span>
+                                <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
+                                    <button
+                                        type="button"
+                                        data-reel-play-toggle
+                                        data-label-play="{{ __('explore.play') }}"
+                                        data-label-pause="{{ __('explore.pause') }}"
+                                        aria-label="{{ __('explore.play') }}"
+                                        class="pointer-events-auto hidden flex h-14 w-14 items-center justify-center rounded-full bg-black/50 text-white ring-1 ring-white/30 transition hover:bg-black/60"
+                                    >
+                                        <svg data-icon-play class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <div class="absolute right-4 bottom-24 flex flex-col items-center gap-2 text-white/90">
+                                    <button
+                                        type="button"
+                                        data-reel-mute-toggle
+                                        data-label-mute="{{ __('explore.mute') }}"
+                                        data-label-unmute="{{ __('explore.unmute') }}"
+                                        aria-label="{{ __('explore.unmute') }}"
+                                        class="flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white transition hover:bg-white/20"
+                                    >
+                                        <svg data-icon-mute class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                            <path d="M14 8a6 6 0 0 1 0 8" />
+                                            <path d="M17 5a10 10 0 0 1 0 14" />
+                                            <path d="M4 10h4l5-4v12l-5-4H4z" />
+                                        </svg>
+                                        <svg data-icon-unmute class="hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                            <path d="M4 10h4l5-4v12l-5-4H4z" />
+                                            <path d="M17 9l4 6" />
+                                            <path d="M21 9l-4 6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div class="absolute left-4 bottom-24 flex flex-col items-center gap-3 text-white/90">
                                     <div class="flex flex-col items-center gap-1">
                                         @php
@@ -118,6 +156,15 @@
                                         >
                                             {{ __('explore.view') }}
                                         </a>
+                                    </div>
+                                </div>
+                                <div class="pointer-events-none absolute inset-x-0 bottom-0 px-4 pb-2">
+                                    <div class="h-1 w-full rounded-full bg-white/25">
+                                        <div
+                                            data-reel-progress
+                                            class="h-1 w-0 rounded-full bg-white transition-[width] duration-150"
+                                            style="width: 0%;"
+                                        ></div>
                                     </div>
                                 </div>
                             </div>

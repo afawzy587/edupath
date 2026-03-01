@@ -8,6 +8,7 @@ return [
         'hobbies' => 'الهوايات',
         'courses' => 'الدورات',
         'explore' => 'استكشف',
+        'profile' => 'الملف الشخصي',
         'admin' => 'المدير',
     ],
     'menu' => [
