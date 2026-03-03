@@ -16,5 +16,10 @@ class Question extends Model
     use Translatable;
 
     public $translatedAttributes = ['title'];
-    protected $fillable = ['type','active','order'];
+    protected $fillable = ['category_id', 'type', 'active', 'order'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
