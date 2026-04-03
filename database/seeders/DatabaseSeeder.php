@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'password'=> Hash::make('P@ss1234')
         ]);
 
+
         $this->call([
             CategoriesSeeder::class,
             QuestionsSeeder::class,
