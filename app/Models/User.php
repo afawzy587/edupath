@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use App\Models\Course;
 use App\Models\Review;
+use App\Models\Answer;
 
 class User extends Authenticatable
 {
@@ -77,6 +78,11 @@ class User extends Authenticatable
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class, 'student_id');
     }
 
     public function likedCourses()

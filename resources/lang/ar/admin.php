@@ -14,7 +14,27 @@ return [
         'courses' => 'الدورات',
         'categories' => 'الفئات',
         'questions' => 'الأسئلة',
+        'hobbies_report' => 'تقرير الهوايات',
+        'assessments_report' => 'تقرير التقييمات',
         'logout' => 'تسجيل الخروج',
+    ],
+    'reports' => [
+        'badge' => 'تقرير الطلاب',
+        'title' => 'تقرير :type',
+        'subtitle' => 'إجابات كل طالب حسب كل سؤال.',
+        'export' => 'تنزيل XLSX',
+        'switch_to' => 'فتح :type',
+        'search_label' => 'بحث باسم الطالب',
+        'search_placeholder' => 'اكتب اسم الطالب...',
+        'empty' => 'لا يوجد طلاب.',
+        'types' => [
+            'hobbies' => 'الهوايات',
+            'assessments' => 'التقييمات',
+        ],
+        'table' => [
+            'student' => 'الطالب',
+            'no_questions' => 'لا توجد أسئلة',
+        ],
     ],
     'courses' => [
         'badge' => 'الدورات',

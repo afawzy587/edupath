@@ -14,7 +14,27 @@ return [
         'courses' => 'Courses',
         'categories' => 'Categories',
         'questions' => 'Questions',
+        'hobbies_report' => 'Hobbies Report',
+        'assessments_report' => 'Assessments Report',
         'logout' => 'Logout',
+    ],
+    'reports' => [
+        'badge' => 'Students Report',
+        'title' => ':type Report',
+        'subtitle' => 'Question-by-question answers for each student.',
+        'export' => 'Download XLSX',
+        'switch_to' => 'Open :type',
+        'search_label' => 'Search by student name',
+        'search_placeholder' => 'Type student name...',
+        'empty' => 'No students found.',
+        'types' => [
+            'hobbies' => 'Hobbies',
+            'assessments' => 'Assessments',
+        ],
+        'table' => [
+            'student' => 'Student',
+            'no_questions' => 'No questions',
+        ],
     ],
     'courses' => [
         'badge' => 'Courses',

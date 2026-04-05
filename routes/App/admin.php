@@ -12,6 +12,8 @@ use App\Livewire\Admin\CourseEdit;
 use App\Livewire\Admin\QuestionCreate;
 use App\Livewire\Admin\QuestionEdit;
 use App\Livewire\Admin\Questions;
+use App\Livewire\Admin\UsersReport;
+use App\Http\Controllers\Admin\UserExportController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\QuestionController;
@@ -52,4 +54,7 @@ Route::group([
     Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
     Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
     Route::delete('/questions/{question}', [QuestionController::class, 'destroy'])->name('questions.destroy');
+
+    Route::get('/reports/{type}', UsersReport::class)->name('reports.show');
+    Route::get('/reports/{type}/export', UserExportController::class)->name('reports.export');
 });

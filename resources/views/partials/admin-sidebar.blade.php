@@ -45,6 +45,29 @@
             </span>
             {{ __('admin.sidebar.questions') }}
         </a>
+        <a wire:navigate href="{{ route('admin.reports.show', ['type' => 'hobbies']) }}"
+           class="flex items-center gap-2 rounded-xl px-3 py-2 transition {{ request()->routeIs('admin.reports.show') && request()->route('type') === 'hobbies' ? 'bg-teal-600 text-white' : 'hover:bg-teal-50 hover:text-teal-700' }}">
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-teal-100 text-teal-700 {{ request()->routeIs('admin.reports.show') && request()->route('type') === 'hobbies' ? 'bg-white/20 text-white' : '' }}">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="8.5" cy="7" r="4" />
+                    <path d="M20 8v6" />
+                    <path d="M23 11h-6" />
+                </svg>
+            </span>
+            {{ __('admin.sidebar.hobbies_report') }}
+        </a>
+        <a wire:navigate href="{{ route('admin.reports.show', ['type' => 'assessments']) }}"
+           class="flex items-center gap-2 rounded-xl px-3 py-2 transition {{ request()->routeIs('admin.reports.show') && request()->route('type') === 'assessments' ? 'bg-teal-600 text-white' : 'hover:bg-teal-50 hover:text-teal-700' }}">
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-teal-100 text-teal-700 {{ request()->routeIs('admin.reports.show') && request()->route('type') === 'assessments' ? 'bg-white/20 text-white' : '' }}">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h8" />
+                </svg>
+            </span>
+            {{ __('admin.sidebar.assessments_report') }}
+        </a>
     </nav>
     <div class="mt-6 border-t border-gray-100 pt-4">
         <form method="POST" action="{{ route('student.logout') }}">
