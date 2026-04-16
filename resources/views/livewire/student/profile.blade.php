@@ -259,10 +259,10 @@
                     <div class="mt-4 overflow-x-auto">
                         <table class="min-w-full overflow-hidden rounded-xl border border-gray-100 text-sm">
                             <thead>
-                                <tr class="bg-gray-50 text-left text-xs uppercase tracking-wide text-gray-500">
+                                <tr class="bg-gray-50 text-center text-xs uppercase tracking-wide text-gray-500">
                                     <th class="px-3 py-3">{{ __('profile.development.domain') }}</th>
                                     <th class="px-3 py-3 text-blue-700">{{ __('profile.development.blue_col') }}</th>
-                                    <th class="px-3 py-3 text-green-700">{{ __('profile.development.green_col') }}</th>
+{{--                                    <th class="px-3 py-3 text-green-700">{{ __('profile.development.green_col') }}</th>--}}
                                     <th class="px-3 py-3 text-yellow-700">{{ __('profile.development.yellow_col') }}</th>
                                 </tr>
                             </thead>
@@ -273,11 +273,11 @@
                                         <td class="px-3 py-3">
                                             <div class="rounded bg-blue-50 px-2 py-1 text-xs text-blue-700">{{ $row['blue_percent'] }}%</div>
                                         </td>
-                                        <td class="px-3 py-3">
-                                            <div class="rounded bg-green-50 px-2 py-1 text-xs text-green-700">
-                                                {{ $row['green_percent'] }}% · {{ __('profile.development.enrolled') }} {{ $row['enrolled_count'] }} · {{ __('profile.development.comments') }} {{ $row['completed_count'] }}
-                                            </div>
-                                        </td>
+{{--                                        <td class="px-3 py-3">--}}
+{{--                                            <div class="rounded bg-green-50 px-2 py-1 text-xs text-green-700">--}}
+{{--                                                {{ $row['green_percent'] }}% · {{ __('profile.development.enrolled') }} {{ $row['enrolled_count'] }} · {{ __('profile.development.comments') }} {{ $row['completed_count'] }}--}}
+{{--                                            </div>--}}
+{{--                                        </td>--}}
                                         <td class="px-3 py-3">
                                             <div class="rounded bg-yellow-50 px-2 py-1 text-xs text-yellow-700">
                                                 {{ $row['yellow_percent'] }}% · {{ __('profile.behavior.views') }} {{ $row['views_count'] }} · {{ __('profile.behavior.likes') }} {{ $row['likes_count'] }}

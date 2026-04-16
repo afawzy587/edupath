@@ -10,7 +10,7 @@
             @php
                 $isAssessments = request()->routeIs('student.assessments') || request()->is('*assessments*') || (isset($pageName) && $pageName === 'assessments');
                 $isHobbies = request()->routeIs('student.hobbies') || request()->is('*hobbies*') || (isset($pageName) && $pageName === 'hobbies');
-                $isCourses = request()->routeIs('student.courses') || request()->is('*courses*') || (isset($pageName) && $pageName === 'courses');
+//                $isCourses = request()->routeIs('student.courses') || request()->is('*courses*') || (isset($pageName) && $pageName === 'courses');
                 $isExplore = request()->routeIs('student.explore') || request()->is('*explore*') || (isset($pageName) && $pageName === 'explore');
                 $isProfile = request()->routeIs('student.profile') || request()->is('*profile*') || (isset($pageName) && $pageName === 'profile');
             @endphp
@@ -37,17 +37,17 @@
                     </span>
                     {{ __('home.nav.hobbies') }}
                 </a>
-                <a wire:navigate href="{{ route('student.courses') }}"
-                   @if ($isCourses) aria-current="page" @endif
-                   class="group inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-teal-50 hover:text-teal-700 aria-[current=page]:bg-teal-600 aria-[current=page]:text-white">
-                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal-100 text-teal-700 transition group-aria-[current=page]:bg-white/20 group-aria-[current=page]:text-white">
-                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 4h14v16H5z" />
-                            <path d="M8 4v16" />
-                        </svg>
-                    </span>
-                    {{ __('home.nav.courses') }}
-                </a>
+{{--                <a wire:navigate href="{{ route('student.courses') }}"--}}
+{{--                   @if ($isCourses) aria-current="page" @endif--}}
+{{--                   class="group inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-teal-50 hover:text-teal-700 aria-[current=page]:bg-teal-600 aria-[current=page]:text-white">--}}
+{{--                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal-100 text-teal-700 transition group-aria-[current=page]:bg-white/20 group-aria-[current=page]:text-white">--}}
+{{--                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">--}}
+{{--                            <path d="M5 4h14v16H5z" />--}}
+{{--                            <path d="M8 4v16" />--}}
+{{--                        </svg>--}}
+{{--                    </span>--}}
+{{--                    {{ __('home.nav.courses') }}--}}
+{{--                </a>--}}
                 <a wire:navigate href="{{ route('student.explore') }}"
                    @if ($isExplore) aria-current="page" @endif
                    class="group inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-teal-50 hover:text-teal-700 aria-[current=page]:bg-teal-600 aria-[current=page]:text-white">

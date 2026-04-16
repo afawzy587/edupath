@@ -76,6 +76,11 @@ class Questions extends Component
         return ($this->currentCount / $this->total) * 100;
     }
 
+    public function getIsCompletedProperty(): bool
+    {
+        return $this->currentCount >= $this->total;
+    }
+
     public function saveHobbies(): void
     {
         if (! $this->validateCurrentPage()) {

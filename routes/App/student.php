@@ -18,7 +18,7 @@ Route::get('/', LandingPage::class)->name('landing-page');
 Route::group(['prefix' => 'student', 'as' => 'student.'], function (): void {
     Route::get('/assessments', Questions::class)->name('assessments');
     Route::get('/hobbies', HobbiesQuestions::class)->name('hobbies');
-    Route::get('/courses', Courses::class)->name('courses');
+//    Route::get('/courses', Courses::class)->name('courses');
     Route::get('/explore', Explore::class)->name('explore');
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/courses/{course}', CourseShow::class)->name('courses.show');
