@@ -20,10 +20,10 @@
                 <div class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
                     <h2 class="text-lg font-semibold text-gray-900">{{ __('profile.holland.title') }}</h2>
 
-                    @if($hollandScores->isNotEmpty())
+                    @if($hollandChartScores->isNotEmpty())
                         <div class="mt-5 grid gap-6 lg:grid-cols-2">
                             <div class="space-y-3">
-                                @foreach($hollandScores as $domain)
+                                @foreach($hollandChartScores as $domain)
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-sm">
                                             <span class="font-medium text-gray-700">{{ $domain['name'] }}</span>
@@ -115,9 +115,9 @@
                 <div class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
                     <h2 class="text-lg font-semibold text-gray-900">{{ __('profile.hobbies.title') }}</h2>
 
-                    @if($hobbiesScores->isNotEmpty())
+                    @if($hobbiesChartScores->isNotEmpty())
                         <div class="mt-4 space-y-3">
-                            @foreach($hobbiesScores as $domain)
+                            @foreach($hobbiesChartScores as $domain)
                                 <div>
                                     <div class="mb-1 flex items-center justify-between text-sm">
                                         <span class="font-medium text-gray-700">{{ $domain['name'] }}</span>
