@@ -92,7 +92,8 @@
                                             $labelY = round($centerY + (sin($labelAngle) * $labelRadius), 2);
                                         @endphp
                                         <text x="{{ $labelX }}" y="{{ $labelY }}" text-anchor="middle" class="fill-gray-600" style="font-size: 10px;">
-                                            {{ \Illuminate\Support\Str::limit($value['name'] ?? '', 12) }}
+                                            {{ $value['name'] ?? '' }}
+
                                         </text>
                                     @endforeach
                                 </svg>

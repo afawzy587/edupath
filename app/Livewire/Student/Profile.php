@@ -52,8 +52,8 @@ class Profile extends Component
         $topHolland = $hollandScores->first();
         $topHobbies = $hobbiesScores->first();
 
-        $hollandChartScores = $hollandScores->sortBy('name')->values();
-        $hobbiesChartScores = $hobbiesScores->sortBy('name')->values();
+$hollandChartScores = $hollandScores->sortByDesc('name')->values();
+        $hobbiesChartScores = $hobbiesScores->sortByDesc('name')->values();
         $hollandHexData = $hollandChartScores->take(6)->values();
 
         return view('livewire.student.profile', [
