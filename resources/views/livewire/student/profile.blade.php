@@ -105,7 +105,7 @@
                             @if($topInterest)
                                 <div class="font-semibold text-teal-800">{{ __('profile.holland.interpretation_title') }}</div>
                                 <p class="mt-1">{{ __('profile.holland.interpretation_text', ['domain' => $topInterest['name']]) }}</p>
-                                <p class="mt-1">{{ __('profile.holland.career_text', ['domain' => $topInterest['name']]) }}</p>
+{{--                                <p class="mt-1">{{ __('profile.holland.career_text', ['domain' => $topInterest['name']]) }}</p>--}}
                             @endif
                         </div>
                     @else

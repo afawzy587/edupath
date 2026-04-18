@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'title' => 'تقييم الهوايات والاهتمامات',
+    'title' => 'تقييم الهوايات',
     'subtitle' => 'أخبرنا أكثر عن الأشياء التي تستمتع بها.',
     'progress' => 'التقدم',
     'options' => [

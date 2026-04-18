@@ -47,11 +47,13 @@
                 </div>
 
                 <div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100 text-center">
-                    <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 text-xl">📘</div>
-                    <h3 class="text-lg font-semibold text-gray-900">{{ __('home.cards.smart_courses.title') }}</h3>
-                    <p class="mt-2 text-sm text-gray-600">{{ __('home.cards.smart_courses.body') }}</p>
-                    <a href="#" class="mt-4 inline-flex items-center text-sm text-teal-600 hover:text-teal-700">
-                        {{ __('home.cards.learn_more') }}
+                    <a wire:navigate href="{{ route('student.explore') }}">
+                        <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 text-xl">📘</div>
+                        <h3 class="text-lg font-semibold text-gray-900">{{ __('home.cards.smart_courses.title') }}</h3>
+                        <p class="mt-2 text-sm text-gray-600">{{ __('home.cards.smart_courses.body') }}</p>
+                        <a href="#" class="mt-4 inline-flex items-center text-sm text-teal-600 hover:text-teal-700">
+                            {{ __('home.cards.learn_more') }}
+                        </a>
                     </a>
                 </div>
             </div>
