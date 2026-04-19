@@ -96,7 +96,7 @@
                             @forelse ($recentStudents as $student)
                                 <tr>
                                     <td class="py-3">
-                                        <p class="font-semibold text-gray-900">{{ $student->name }}</p>
+                                        <p class="font-semibold text-gray-900">{{ $student->name ?? $student->email }}</p>
                                         <p class="text-xs text-gray-500">{{ $student->email }}</p>
                                     </td>
                                     <td class="py-3 text-gray-700">{{ $student->school ?: '—' }}</td>

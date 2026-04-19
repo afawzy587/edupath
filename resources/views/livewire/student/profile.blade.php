@@ -11,7 +11,7 @@
                             <p class="mt-1 text-sm text-gray-500">{{ __('profile.subtitle') }}</p>
                         </div>
                         <div class="text-sm text-gray-600">
-                            <div class="font-semibold text-gray-900">{{ $user->name }}</div>
+                            <div class="font-semibold text-gray-900">{{ $user->name ?? $user->email }}</div>
                             <div>{{ $user->email }}</div>
                         </div>
                     </div>

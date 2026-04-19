@@ -19,7 +19,7 @@ class Register extends Component
     public $age = 'nine';
 
     protected $rules = [
-        'name' => 'required|min:3',
+        'name' => 'nullable|min:3',
         'email' => 'required|email|unique:users,email',
         'password' => ['required', 'min:8', 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/'],
         'school' => 'nullable|string|max:255',
@@ -32,7 +32,7 @@ class Register extends Component
         $this->validate();
 
         $user = User::create([
-            'name' => $this->name,
+            'name' => $this->name ?: null,
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'school' => $this->school ?: null,

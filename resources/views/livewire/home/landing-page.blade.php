@@ -29,7 +29,7 @@
                         <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 text-xl">📋</div>
                         <h3 class="text-lg font-semibold text-gray-900">{{ __('home.cards.holland_test.title') }}</h3>
                         <p class="mt-2 text-sm text-gray-600">{{ __('home.cards.holland_test.body') }}</p>
-                        <a href="#" class="mt-4 inline-flex items-center text-sm text-teal-600 hover:text-teal-700">
+                        <a wire:navigate href="{{ route('student.assessments') }}" class="mt-4 inline-flex items-center text-sm text-teal-600 hover:text-teal-700">
                             {{ __('home.cards.learn_more') }}
                         </a>
                     </a>
@@ -40,7 +40,7 @@
                         <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 text-xl">❤️</div>
                         <h3 class="text-lg font-semibold text-gray-900">{{ __('home.cards.hobby_assessment.title') }}</h3>
                         <p class="mt-2 text-sm text-gray-600">{{ __('home.cards.hobby_assessment.body') }}</p>
-                        <a href="#" class="mt-4 inline-flex items-center text-sm text-teal-600 hover:text-teal-700">
+                        <a wire:navigate href="{{ route('student.hobbies') }}" class="mt-4 inline-flex items-center text-sm text-teal-600 hover:text-teal-700">
                             {{ __('home.cards.learn_more') }}
                         </a>
                     </a>
@@ -51,7 +51,7 @@
                         <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 text-xl">📘</div>
                         <h3 class="text-lg font-semibold text-gray-900">{{ __('home.cards.smart_courses.title') }}</h3>
                         <p class="mt-2 text-sm text-gray-600">{{ __('home.cards.smart_courses.body') }}</p>
-                        <a href="#" class="mt-4 inline-flex items-center text-sm text-teal-600 hover:text-teal-700">
+                        <a wire:navigate href="{{ route('student.explore') }}"  class="mt-4 inline-flex items-center text-sm text-teal-600 hover:text-teal-700">
                             {{ __('home.cards.learn_more') }}
                         </a>
                     </a>
