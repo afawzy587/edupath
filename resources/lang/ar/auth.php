@@ -19,8 +19,8 @@ return [
     'register' => [
         'title' => 'إنشاء حساب',
         'subtitle' => 'ابدأ رحلتك المهنية الآن',
-        'name' => 'الاسم الكامل',
-        'name_placeholder' => 'الاسم الكامل',
+        'name' => 'الاسم الكامل (اختياري)',
+        'name_placeholder' => 'الاسم الكامل (اختياري)',
         'email' => 'البريد الإلكتروني',
         'email_placeholder' => 'you@example.com',
         'school' => 'المدرسة',
