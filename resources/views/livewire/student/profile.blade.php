@@ -109,8 +109,17 @@
                             @endif
                         </div>
 
-                        <div class="mt-6">
-                            <h3 class="mb-4 text-lg font-semibold text-gray-900">{{ __('profile.holland.career_suggestions_title') }}</h3>
+
+                    @else
+                        <p class="mt-4 text-sm text-gray-500">{{ __('profile.empty_assessment') }}</p>
+                    @endif
+                </div>
+
+
+
+                <div class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+                    <h2 class="text-lg font-semibold text-gray-900">{{ __('profile.holland.career_suggestions_title') }}</h2>
+                     <div class="mt-6">
                             <div class="overflow-x-auto">
                                 <table class="min-w-full divide-y divide-gray-200 overflow-hidden rounded-xl border border-gray-100 text-sm">
                                     <tbody class="bg-white divide-y divide-gray-100">
@@ -187,11 +196,7 @@
                                 </table>
                             </div>
                         </div>
-                    @else
-                        <p class="mt-4 text-sm text-gray-500">{{ __('profile.empty_assessment') }}</p>
-                    @endif
                 </div>
-
                 <div class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
                     <h2 class="text-lg font-semibold text-gray-900">{{ __('profile.hobbies.title') }}</h2>
 
