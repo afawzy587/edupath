@@ -16,6 +16,7 @@ return [
         'interpretation_title' => 'Result Interpretation',
         'interpretation_text' => 'Your strongest interest domain is :domain, which suggests high motivation in related learning activities.',
         'career_text' => 'Suggested paths: courses and career tracks related to :domain.',
+        'career_suggestions_title' => 'Section 1:',
     ],
     'hobbies' => [
         'title' => 'Hobbies Assessment Results',
