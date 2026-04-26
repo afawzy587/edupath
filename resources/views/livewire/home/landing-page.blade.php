@@ -4,7 +4,7 @@
 
         <section class="bg-slate-50 py-16">
                   @if ($videoUrl)
-                        <div class="mt-8 mx-auto max-w-3xl">
+                        <div class="mt-8 mx-auto max-w-3xl py-1">
                             <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
                                 <video class="w-full" controls playsinline autoplay muted loop src="{{ $videoUrl }}"></video>
                             </div>
@@ -73,7 +73,7 @@
     @guest
         <section class="bg-gradient-to-b from-teal-50 to-white py-20">
                 @if ($videoUrl)
-                    <div class="mt-8 mx-auto max-w-3xl">
+                    <div class="mt-8 mx-auto max-w-3xl py-1">
                         <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
                             <video class="w-full" controls playsinline autoplay muted loop src="{{ $videoUrl }}"></video>
                         </div>
