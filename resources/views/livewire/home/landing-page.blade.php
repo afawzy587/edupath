@@ -3,14 +3,15 @@
         @include('partials.app-header')
 
         <section class="bg-slate-50 py-16">
-            <div class="max-w-6xl mx-auto px-4">
-                   @if ($videoUrl)
+                  @if ($videoUrl)
                         <div class="mt-8 mx-auto max-w-3xl">
                             <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
                                 <video class="w-full" controls playsinline autoplay muted loop src="{{ $videoUrl }}"></video>
                             </div>
                         </div>
                     @endif
+            <div class="max-w-6xl mx-auto px-4">
+
                 <div class="rounded-3xl bg-gradient-to-b from-white to-teal-50 border border-teal-100 px-6 py-16 text-center">
                     <span class="inline-flex items-center gap-2 rounded-full bg-teal-100 text-teal-700 px-4 py-1 text-sm">
                         ✨ {{ __('home.badge') }}
@@ -71,14 +72,15 @@
 
     @guest
         <section class="bg-gradient-to-b from-teal-50 to-white py-20">
-            <div class="text-center max-w-3xl mx-auto">
-                   @if ($videoUrl)
+                @if ($videoUrl)
                     <div class="mt-8 mx-auto max-w-3xl">
                         <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
                             <video class="w-full" controls playsinline autoplay muted loop src="{{ $videoUrl }}"></video>
                         </div>
                     </div>
                 @endif
+            <div class="text-center max-w-3xl mx-auto">
+
                 <span class="bg-teal-100 text-teal-700 px-4 py-1 rounded-full text-sm">
                     {{ __('home.badge') }}
                 </span>
