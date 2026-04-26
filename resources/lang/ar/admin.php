@@ -35,7 +35,17 @@ return [
         ],
         'table' => [
             'student' => 'الطالب',
+            'gender' => 'النوع',
+            'age' => 'السن',
             'no_questions' => 'لا توجد أسئلة',
+        ],
+        'genders' => [
+            'male' => 'ذكر',
+            'female' => 'أنثى',
+        ],
+        'ages' => [
+            'nine' => 'التاسع',
+            'eleven' => 'الحادي عشر',
         ],
     ],
     'courses' => [

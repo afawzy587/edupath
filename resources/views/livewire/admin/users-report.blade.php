@@ -48,6 +48,8 @@
                             <thead class="bg-gray-50 text-xs uppercase tracking-wide text-gray-500">
                                 <tr>
                                     <th class="px-4 py-3">{{ __('admin.reports.table.student') }}</th>
+                                    <th class="px-4 py-3">{{ __('admin.reports.table.gender') }}</th>
+                                    <th class="px-4 py-3">{{ __('admin.reports.table.age') }}</th>
                                     @forelse ($questions as $question)
                                         <th class="px-4 py-3">{{ $question->title }}</th>
                                     @empty
@@ -62,6 +64,8 @@
                                             <p class="font-semibold text-gray-900">{{ $row['student']->name }}</p>
                                             <p class="text-xs text-gray-500">{{ $row['student']->email }}</p>
                                         </td>
+                                        <td class="px-4 py-3 align-top text-gray-700">{{ __('admin.reports.genders.'.$row['gender'], [], 'en') }}</td>
+                                        <td class="px-4 py-3 align-top text-gray-700">{{ __('admin.reports.ages.'.$row['age'], [], 'en') }}</td>
                                         @forelse ($questions as $question)
                                             <td class="px-4 py-3 align-top text-gray-700">{{ $row['answers'][$question->id] }}</td>
                                         @empty

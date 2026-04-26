@@ -44,7 +44,7 @@ class UserExportController extends Controller
         $sheet = $spreadsheet->getActiveSheet();
 
         $headers = array_merge(
-            ['Student Name', 'Email', 'School'],
+            ['Student Name', 'Email', 'School', 'Gender', 'Age'],
             $questions->map(fn($question) => (string) $question->title)->all()
         );
 
@@ -59,6 +59,8 @@ class UserExportController extends Controller
                     $student->name,
                     $student->email,
                     $student->school,
+                    __('admin.reports.genders.'.$student->gender, [], 'en'),
+                    __('admin.reports.ages.'.$student->age, [], 'en'),
                 ],
                 $questions->map(fn($question) => $answersByQuestion->get($question->id, '—'))->all()
             );

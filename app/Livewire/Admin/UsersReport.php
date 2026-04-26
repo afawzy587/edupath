@@ -55,6 +55,8 @@ class UsersReport extends Component
 
             return [
                 'student' => $student,
+                'gender' => $student->gender,
+                'age' => $student->age,
                 'answers' => $questions->mapWithKeys(
                     fn($question) => [$question->id => $answersByQuestion->get($question->id, '—')]
                 )->all(),

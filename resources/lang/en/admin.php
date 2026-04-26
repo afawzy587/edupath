@@ -35,7 +35,17 @@ return [
         ],
         'table' => [
             'student' => 'Student',
+            'gender' => 'Gender',
+            'age' => 'Age',
             'no_questions' => 'No questions',
+        ],
+        'genders' => [
+            'male' => 'Male',
+            'female' => 'Female',
+        ],
+        'ages' => [
+            'nine' => 'ninth',
+            'eleven' => 'eleventh',
         ],
     ],
     'courses' => [
