@@ -24,17 +24,6 @@
                         <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
                             <p class="text-sm font-medium text-gray-700 mb-3">{{ __('admin.landing_page.current_video') }}</p>
                             <div class="rounded-lg overflow-hidden border border-gray-200">
-
-                                 <video
-                                    class="h-full w-full object-cover"
-                                    preload="metadata"
-                                    loop
-                                    muted
-                                    playsinline
-                                    data-explore-video
-                                    data-course-id="{{ $course->id }}"
-                                    src="{{ $currentVideo->video_path }}"
-                                ></video>
                                 <video class="w-full max-h-64" controls src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($currentVideo) }}"></video>
                             </div>
                             <form method="POST" action="{{ route('admin.landing-page-settings.destroy') }}" class="mt-3">
