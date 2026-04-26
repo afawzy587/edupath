@@ -72,6 +72,13 @@
     @guest
         <section class="bg-gradient-to-b from-teal-50 to-white py-20">
             <div class="text-center max-w-3xl mx-auto">
+                   @if ($videoUrl)
+                    <div class="mt-8 mx-auto max-w-3xl">
+                        <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
+                            <video class="w-full" controls playsinline autoplay muted loop src="{{ $videoUrl }}"></video>
+                        </div>
+                    </div>
+                @endif
                 <span class="bg-teal-100 text-teal-700 px-4 py-1 rounded-full text-sm">
                     {{ __('home.badge') }}
                 </span>
@@ -86,13 +93,7 @@
                     {{ __('home.hero_cta') }}
                 </a>
 
-                @if ($videoUrl)
-                    <div class="mt-8 mx-auto max-w-3xl">
-                        <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
-                            <video class="w-full" controls playsinline autoplay muted loop src="{{ $videoUrl }}"></video>
-                        </div>
-                    </div>
-                @endif
+
             </div>
         </section>
     @endguest
