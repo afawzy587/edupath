@@ -64,8 +64,8 @@
                                             <p class="font-semibold text-gray-900">{{ $row['student']->name }}</p>
                                             <p class="text-xs text-gray-500">{{ $row['student']->email }}</p>
                                         </td>
-                                        <td class="px-4 py-3 align-top text-gray-700">{{ __('admin.reports.genders.'.$row['gender'], [], 'en') }}</td>
-                                        <td class="px-4 py-3 align-top text-gray-700">{{ __('admin.reports.ages.'.$row['age'], [], 'en') }}</td>
+                                        <td class="px-4 py-3 align-top text-gray-700">{{ __('admin.reports.genders.'.$row['gender'], []) }}</td>
+                                        <td class="px-4 py-3 align-top text-gray-700">{{ __('admin.reports.ages.'.$row['age'], []) }}</td>
                                         @forelse ($questions as $question)
                                             <td class="px-4 py-3 align-top text-gray-700">{{ $row['answers'][$question->id] }}</td>
                                         @empty
