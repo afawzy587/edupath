@@ -25,4 +25,5 @@ return [
     'answers_value' => 'Answer',
     'save' => 'Save',
     'save_success' => 'Answers saved successfully.',
+    'next_assessment' => 'Complete Hobbies Assessment',
 ];

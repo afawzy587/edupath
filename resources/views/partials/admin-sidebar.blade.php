@@ -45,6 +45,19 @@
             </span>
             {{ __('admin.sidebar.questions') }}
         </a>
+        <a wire:navigate href="{{ route('admin.landing-page-settings') }}"
+           class="flex items-center gap-2 rounded-xl px-3 py-2 transition {{ request()->routeIs('admin.landing-page-settings') ? 'bg-teal-600 text-white' : 'hover:bg-teal-50 hover:text-teal-700' }}">
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-teal-100 text-teal-700 {{ request()->routeIs('admin.landing-page-settings') ? 'bg-white/20 text-white' : '' }}">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 8a5 5 0 0 1 0 8" />
+                    <path d="M19 5a9 9 0 0 1 0 14" />
+                    <path d="M3 12h.01" />
+                    <path d="M7 12h.01" />
+                    <path d="M11 12h.01" />
+                </svg>
+            </span>
+            {{ __('admin.sidebar.landing_page') }}
+        </a>
         <a wire:navigate href="{{ route('admin.reports.show', ['type' => 'hobbies']) }}"
            class="flex items-center gap-2 rounded-xl px-3 py-2 transition {{ request()->routeIs('admin.reports.show') && request()->route('type') === 'hobbies' ? 'bg-teal-600 text-white' : 'hover:bg-teal-50 hover:text-teal-700' }}">
             <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-teal-100 text-teal-700 {{ request()->routeIs('admin.reports.show') && request()->route('type') === 'hobbies' ? 'bg-white/20 text-white' : '' }}">

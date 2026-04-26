@@ -81,6 +81,27 @@ class Questions extends Component
         return $this->currentCount >= $this->total;
     }
 
+    public function getIsAssessmentsCompletedProperty(): bool
+    {
+        $studentId = auth()->id();
+
+        if (! $studentId) {
+            return false;
+        }
+
+        $assessmentsTotal = Question::where('type', 'assessments')->where('active', true)->count();
+
+        if ($assessmentsTotal === 0) {
+            return true;
+        }
+
+        $assessmentsCount = Answer::where('student_id', $studentId)
+            ->whereHas('question', fn ($query) => $query->where('type', 'assessments'))
+            ->count();
+
+        return $assessmentsCount >= $assessmentsTotal;
+    }
+
     public function saveHobbies(): void
     {
         if (! $this->validateCurrentPage()) {

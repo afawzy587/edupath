@@ -13,10 +13,12 @@ use App\Livewire\Admin\QuestionCreate;
 use App\Livewire\Admin\QuestionEdit;
 use App\Livewire\Admin\Questions;
 use App\Livewire\Admin\UsersReport;
+use App\Livewire\Admin\LandingPageSettings;
 use App\Http\Controllers\Admin\UserExportController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\LandingPageSettingController;
 use App\Livewire\Admin\Courses;
 use Illuminate\Support\Facades\Route;
 
@@ -57,4 +59,8 @@ Route::group([
 
     Route::get('/reports/{type}', UsersReport::class)->name('reports.show');
     Route::get('/reports/{type}/export', UserExportController::class)->name('reports.export');
+
+    Route::get('/landing-page-settings', LandingPageSettings::class)->name('landing-page-settings');
+    Route::put('/landing-page-settings', [LandingPageSettingController::class, 'update'])->name('landing-page-settings.update');
+    Route::delete('/landing-page-settings', [LandingPageSettingController::class, 'destroy'])->name('landing-page-settings.destroy');
 });

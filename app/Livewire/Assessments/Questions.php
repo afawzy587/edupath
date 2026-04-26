@@ -80,6 +80,27 @@ class Questions extends Component
         return $this->currentCount >= $this->total;
     }
 
+    public function getIsHobbiesCompletedProperty(): bool
+    {
+        $studentId = auth()->id();
+
+        if (! $studentId) {
+            return false;
+        }
+
+        $hobbiesTotal = Question::where('type', 'hobbies')->where('active', true)->count();
+
+        if ($hobbiesTotal === 0) {
+            return true;
+        }
+
+        $hobbiesCount = Answer::where('student_id', $studentId)
+            ->whereHas('question', fn ($query) => $query->where('type', 'hobbies'))
+            ->count();
+
+        return $hobbiesCount >= $hobbiesTotal;
+    }
+
     public function saveAssessment(): void
     {
         if (! $this->validateCurrentPage()) {

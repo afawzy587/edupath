@@ -25,4 +25,5 @@ return [
     'answers_value' => 'Answer',
     'save' => 'Save',
     'save_success' => 'Answers saved successfully.',
+    'complete_assessment' => 'Complete Holland Test',
 ];

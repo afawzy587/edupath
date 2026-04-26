@@ -20,9 +20,15 @@
                         <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 text-2xl">✅</div>
                         <h2 class="text-2xl font-bold text-gray-900">{{ __('assessments.completed_title') }}</h2>
                         <p class="mt-2 text-gray-600">{{ __('assessments.completed_subtitle') }}</p>
+                @if ($this->isHobbiesCompleted)
                         <a wire:navigate href="{{ route('student.profile') }}" class="mt-6 inline-flex items-center rounded-lg bg-teal-600 px-6 py-2 text-white hover:bg-teal-700">
                             {{ __('assessments.view_results') }}
                         </a>
+                @else
+                        <a wire:navigate href="{{ route('student.hobbies') }}" class="mt-6 inline-flex items-center rounded-lg bg-teal-600 px-6 py-2 text-white hover:bg-teal-700">
+                            {{ __('assessments.next_assessment') }}
+                        </a>
+                @endif
                     </div>
                 @else
                     <div class="mt-6 flex items-center justify-between text-sm text-gray-500">

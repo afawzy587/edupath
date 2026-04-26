@@ -16,13 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', LandingPage::class)->name('landing-page');
 Route::group(['prefix' => 'student', 'as' => 'student.'], function (): void {
-    Route::get('/assessments', Questions::class)->name('assessments');
-    Route::get('/hobbies', HobbiesQuestions::class)->name('hobbies');
-//    Route::get('/courses', Courses::class)->name('courses');
-    Route::get('/explore', Explore::class)->name('explore');
-    Route::get('/profile', Profile::class)->name('profile');
-    Route::get('/courses/{course}', CourseShow::class)->name('courses.show');
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class)->name('register');
     Route::post('/logout', Logout::class)->name('logout');
+
+    Route::middleware('auth.redirect')->group(function (): void {
+        Route::get('/assessments', Questions::class)->name('assessments');
+        Route::get('/hobbies', HobbiesQuestions::class)->name('hobbies');
+        Route::get('/explore', Explore::class)->name('explore');
+        Route::get('/profile', Profile::class)->name('profile');
+        Route::get('/courses/{course}', CourseShow::class)->name('courses.show');
+    });
 });
+

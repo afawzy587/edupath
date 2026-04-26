@@ -112,10 +112,6 @@ class Explore extends Component
 
     public function render()
     {
-        if (! auth()->check()) {
-            return redirect()->route('student.login');
-        }
-
         $categories = Category::query()
             ->where('active', true)
             ->whereHas('courses', function ($query): void {

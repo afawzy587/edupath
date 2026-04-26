@@ -6,6 +6,7 @@ namespace App\Livewire\Student;
 
 use App\Models\Answer;
 use App\Models\Category;
+use App\Models\Question;
 use App\Models\ExploreInteraction;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +16,38 @@ class Profile extends Component
 {
     public string $comparisonTab = 'interests';
     public ?string $pageName = 'profile';
+
+    public function mount(): void
+    {
+        $userId = auth()->id();
+
+        if (! $userId) {
+            return;
+        }
+
+        $assessmentsTotal = Question::where('type', 'assessments')->where('active', true)->count();
+        $hobbiesTotal = Question::where('type', 'hobbies')->where('active', true)->count();
+
+        $assessmentsCount = Answer::where('student_id', $userId)
+            ->whereHas('question', fn ($query) => $query->where('type', 'assessments'))
+            ->count();
+
+        $hobbiesCount = Answer::where('student_id', $userId)
+            ->whereHas('question', fn ($query) => $query->where('type', 'hobbies'))
+            ->count();
+
+        if ($assessmentsCount < $assessmentsTotal) {
+            $this->redirect(route('student.assessments'), navigate: true);
+
+            return;
+        }
+
+        if ($hobbiesCount < $hobbiesTotal) {
+            $this->redirect(route('student.hobbies'), navigate: true);
+
+            return;
+        }
+    }
 
     public function setComparisonTab(string $tab): void
     {
@@ -27,10 +60,6 @@ class Profile extends Component
 
     public function render()
     {
-        if (! auth()->check()) {
-            return redirect()->route('student.login');
-        }
-
         $user = auth()->user();
         $categoryNames = Category::query()
             ->where('active', true)

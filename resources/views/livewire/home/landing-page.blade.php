@@ -18,6 +18,14 @@
                     <button wire:navigate href="{{ route('student.assessments') }}" class="mt-8 inline-flex items-center justify-center rounded-lg bg-teal-600 px-8 py-3 text-white hover:bg-teal-700">
                         {{ __('home.hero_cta') }}
                     </button>
+
+                    @if ($videoUrl)
+                        <div class="mt-8 mx-auto max-w-3xl">
+                            <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
+                                <video class="w-full" controls playsinline src="{{ $videoUrl }}"></video>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>
@@ -76,6 +84,14 @@
                 <a wire:navigate href="{{ route('student.login') }}" class="mt-8 inline-flex items-center justify-center bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700">
                     {{ __('home.hero_cta') }}
                 </a>
+
+                @if ($videoUrl)
+                    <div class="mt-8 mx-auto max-w-3xl">
+                        <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
+                            <video class="w-full" controls playsinline src="{{ $videoUrl }}"></video>
+                        </div>
+                    </div>
+                @endif
             </div>
         </section>
     @endguest
