@@ -81,6 +81,10 @@ class Profile extends Component
         $topHolland = $hollandScores->first();
         $topHobbies = $hobbiesScores->first();
 
+        $careerSuggestions = \App\Models\HollandCareerSuggestion::query()
+            ->orderBy('sort_order')
+            ->get();
+
 $hollandChartScores = $hollandScores->sortByDesc('name')->values();
         $hobbiesChartScores = $hobbiesScores->sortByDesc('name')->values();
         $hollandHexData = $hollandChartScores->take(6)->values();
@@ -99,6 +103,7 @@ $hollandChartScores = $hollandScores->sortByDesc('name')->values();
             ],
             'behavior' => $behavior,
             'comparisonRows' => $comparisonRows,
+            'careerSuggestions' => $careerSuggestions,
         ])
             ->layout('layouts.app')
             ->layoutData(['pageName' => 'profile']);

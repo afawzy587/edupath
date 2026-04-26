@@ -19,5 +19,7 @@ class Setting extends Model
     {
         self::query()->updateOrCreate(['key' => $key], ['value' => $value]);
     }
+
+
 }
 

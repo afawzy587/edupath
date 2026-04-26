@@ -14,6 +14,7 @@ use App\Livewire\Admin\QuestionEdit;
 use App\Livewire\Admin\Questions;
 use App\Livewire\Admin\UsersReport;
 use App\Livewire\Admin\LandingPageSettings;
+use App\Livewire\Admin\HollandCareerSuggestions;
 use App\Http\Controllers\Admin\UserExportController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -63,4 +64,6 @@ Route::group([
     Route::get('/landing-page-settings', LandingPageSettings::class)->name('landing-page-settings');
     Route::put('/landing-page-settings', [LandingPageSettingController::class, 'update'])->name('landing-page-settings.update');
     Route::delete('/landing-page-settings', [LandingPageSettingController::class, 'destroy'])->name('landing-page-settings.destroy');
+
+    Route::get('/holland-career-suggestions', HollandCareerSuggestions::class)->name('holland-career-suggestions');
 });

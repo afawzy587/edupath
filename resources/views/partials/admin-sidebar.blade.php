@@ -58,6 +58,19 @@
             </span>
             {{ __('admin.sidebar.landing_page') }}
         </a>
+        <a wire:navigate href="{{ route('admin.holland-career-suggestions') }}"
+           class="flex items-center gap-2 rounded-xl px-3 py-2 transition {{ request()->routeIs('admin.holland-career-suggestions') ? 'bg-teal-600 text-white' : 'hover:bg-teal-50 hover:text-teal-700' }}">
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-teal-100 text-teal-700 {{ request()->routeIs('admin.holland-career-suggestions') ? 'bg-white/20 text-white' : '' }}">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                </svg>
+            </span>
+            {{ __('admin.sidebar.holland_career') }}
+        </a>
         <a wire:navigate href="{{ route('admin.reports.show', ['type' => 'hobbies']) }}"
            class="flex items-center gap-2 rounded-xl px-3 py-2 transition {{ request()->routeIs('admin.reports.show') && request()->route('type') === 'hobbies' ? 'bg-teal-600 text-white' : 'hover:bg-teal-50 hover:text-teal-700' }}">
             <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-teal-100 text-teal-700 {{ request()->routeIs('admin.reports.show') && request()->route('type') === 'hobbies' ? 'bg-white/20 text-white' : '' }}">

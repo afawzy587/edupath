@@ -6,15 +6,16 @@ namespace App\Livewire\Home;
 
 use App\Models\Setting;
 use Livewire\Component;
-
+use App\Traits\UploadFileTrait;
 class LandingPage extends Component
 {
+    use UploadFileTrait;
     public function render()
     {
         $videoUrl = null;
         $videoPath = Setting::get('landing_page_video');
         if ($videoPath) {
-            $videoUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($videoPath);
+            $videoUrl = $this->getFileUrl($videoPath);
         }
 
         return view('livewire.home.landing-page', [
