@@ -4,6 +4,13 @@
 
         <section class="bg-slate-50 py-16">
             <div class="max-w-6xl mx-auto px-4">
+                   @if ($videoUrl)
+                        <div class="mt-8 mx-auto max-w-3xl">
+                            <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
+                                <video class="w-full" controls playsinline src="{{ $videoUrl }}" autoplay></video>
+                            </div>
+                        </div>
+                    @endif
                 <div class="rounded-3xl bg-gradient-to-b from-white to-teal-50 border border-teal-100 px-6 py-16 text-center">
                     <span class="inline-flex items-center gap-2 rounded-full bg-teal-100 text-teal-700 px-4 py-1 text-sm">
                         ✨ {{ __('home.badge') }}
@@ -19,13 +26,7 @@
                         {{ __('home.hero_cta') }}
                     </button>
 
-                    @if ($videoUrl)
-                        <div class="mt-8 mx-auto max-w-3xl">
-                            <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
-                                <video class="w-full" controls playsinline src="{{ $videoUrl }}"></video>
-                            </div>
-                        </div>
-                    @endif
+
                 </div>
             </div>
         </section>
