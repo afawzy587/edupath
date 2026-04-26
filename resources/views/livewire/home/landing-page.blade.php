@@ -7,7 +7,7 @@
                    @if ($videoUrl)
                         <div class="mt-8 mx-auto max-w-3xl">
                             <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
-                                <video class="w-full" controls playsinline src="{{ $videoUrl }}" autoplay></video>
+                                <video class="w-full" controls playsinline autoplay muted loop src="{{ $videoUrl }}"></video>
                             </div>
                         </div>
                     @endif
@@ -89,7 +89,7 @@
                 @if ($videoUrl)
                     <div class="mt-8 mx-auto max-w-3xl">
                         <div class="rounded-2xl overflow-hidden border border-teal-100 shadow-sm">
-                            <video class="w-full" controls playsinline src="{{ $videoUrl }}"></video>
+                            <video class="w-full" controls playsinline autoplay muted loop src="{{ $videoUrl }}"></video>
                         </div>
                     </div>
                 @endif
