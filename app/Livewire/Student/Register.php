@@ -21,7 +21,7 @@ class Register extends Component
     protected $rules = [
         'name' => 'nullable|min:3',
         'email' => 'required|email|unique:users,email',
-        'password' => ['required', 'min:8', 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/'],
+        'password' => ['required', 'min:8'],
         'school' => 'nullable|string|max:255',
         'gender' => 'required|in:male,female',
         'age' => 'required|in:nine,eleven',
