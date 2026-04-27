@@ -15,6 +15,8 @@ use App\Livewire\Student\Register;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', LandingPage::class)->name('landing-page');
+Route::redirect('/login', '/student/login', 301);
+Route::redirect('/register', '/student/register', 301);
 Route::group(['prefix' => 'student', 'as' => 'student.'], function (): void {
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class)->name('register');
