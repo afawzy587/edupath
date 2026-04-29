@@ -133,7 +133,7 @@ class Explore extends Component
             )
             ->with(['translations', 'category.translations'])
             ->withCount(['reviews', 'likes'])
-            ->latest()
+            ->inRandomOrder()
             ->get();
 
         $likedCourseIds = [];
